@@ -5,17 +5,31 @@
  */
 package ec.edu.ups.vista.parqueo;
 
+import gnu.io.NRSerialPort;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import panamahitek.Arduino.PanamaHitek_Arduino;
+
 /**
  *
  * @author Carlos
  */
 public class Parqueadero extends javax.swing.JFrame {
 
+    PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
+  
+    private NRSerialPort puertoUSB;
     /**
      * Creates new form Parqueadero
      */
     public Parqueadero() {
         initComponents();
+        try {
+            arduino.arduinoTX("COM7", 9600);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -97,10 +111,20 @@ public class Parqueadero extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try {
+            arduino.sendData("2");            
+        } catch (Exception ex) {
+            Logger.getLogger(Parqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+          try {
+            arduino.sendData("1");            
+        } catch (Exception ex) {
+            Logger.getLogger(Parqueadero.class.getName()).log(Level.SEVERE, null, ex);
+        }
         int num,x;
         
         for(x=1;x<=8;x++){
