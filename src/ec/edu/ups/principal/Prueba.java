@@ -15,8 +15,7 @@ import ec.edu.ups.persona.Persona;
 public class Prueba {
     public static void main (String args[]){
          ControladorPersona cp = new ControladorPersona();
-       // ControladorDireccion cd = new ControladorDireccion();
-        Persona p = new Persona("0105802607", "Pedro alejandri", "Parra ulloa", 22, "Gualaceo");
+        Persona p = new Persona("0105802607", "Pedro alejandri", "Parra ulloa", 19, "Gualaceo");
         cp.create(p);
     }
 }
