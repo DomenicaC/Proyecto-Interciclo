@@ -71,7 +71,7 @@ public class ControladorPersona {
 
     public void updatePer(Persona persona, String cedula) {
         
-        String sql = "UPDATE \"Persona \" SET('" + persona.getCedula() + "','"
+        String sql = "UPDATE \"PERSONA \" SET('" + persona.getCedula() + "','"
                 + persona.getNombre() + "','"
                 + persona.getApellido() + "',"
                 + persona.getEdad() + ",'"
@@ -116,7 +116,7 @@ public class ControladorPersona {
         Persona per = new Persona();
         try {
 
-            String sql = "SELECT * FROM \"Persona\"';";
+            String sql = "SELECT * FROM \"PERSONA\"';";
             System.out.println("Base " + sql);
 
             MiBaseDatos.conectar();

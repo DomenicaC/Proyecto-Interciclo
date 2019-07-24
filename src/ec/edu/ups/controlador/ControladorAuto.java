@@ -55,7 +55,7 @@ public class ControladorAuto {
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
                 auto.setAño(res.getString("AUT_AÑO"));
-              //  auto.setPerosna(res.getInt("PER_CEDULA"));
+                //auto.setPerosna(res.getString("PER_CEDULA"));
                
 
             }
@@ -97,7 +97,7 @@ public class ControladorAuto {
 
     public void deletePer(String auto) {
 
-        String sql = "DELETE FROM \"AURO \"WHERE \"AUT_PLACA \"='" + auto + "';";
+        String sql = "DELETE FROM \"AUTO \"WHERE \"AUT_PLACA \"='" + auto + "';";
         System.out.println("Base eliminada " + sql);
 
         MiBaseDatos.conectar();

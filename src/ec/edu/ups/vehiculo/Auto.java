@@ -11,7 +11,7 @@ import ec.edu.ups.persona.Persona;
  *
  * @author erics
  */
-public class Auto {
+public class Auto extends Persona {
     private String placa;
     private String modelo;
     private String color;
