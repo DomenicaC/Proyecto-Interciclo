@@ -38,7 +38,7 @@ public class ControladorAuto {
             ex.printStackTrace();
         }
     }
-    public Persona BuscaarPersona(String placa)  {
+    public Auto BuscaarPersona(String placa)  {
         Auto auto = new Auto();
         try {
 
@@ -55,7 +55,7 @@ public class ControladorAuto {
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
                 auto.setAño(res.getString("AUT_AÑO"));
-                auto.setPerosna(res.getInt("PER_CEDULA"));
+              //  auto.setPerosna(res.getInt("PER_CEDULA"));
                
 
             }
@@ -68,16 +68,16 @@ public class ControladorAuto {
             error.printStackTrace();
 
         }
-        return per;
+        return auto;
     }
 
-    public void updatePer(Persona persona, String cedula) {
+    public void updatePer(Auto auto, String placa) {
         
-        String sql = "UPDATE \"Persona \" SET('" + persona.getCedula() + "','"
-                + persona.getNombre() + "','"
-                + persona.getApellido() + "',"
-                + persona.getEdad() + ",'"
-                + persona.getDireccion()+ ")\"WHERE \"PER_CEDULA\"='" + cedula + "';";
+        String sql = "UPDATE \"AUTO \" SET('" + auto.getPlaca() + "','"
+                + auto.getModelo() + "','"
+                + auto.getColor() + "',"
+                + auto.getAño() + ",'"
+                + auto.getPerosna()+ ")\"WHERE \"AUT_PLACA\"='" + placa + "';";
         System.out.println("Base de datos " + sql);
 
         MiBaseDatos.conectar();
@@ -95,9 +95,9 @@ public class ControladorAuto {
 
     }
 
-    public void deletePer(String cedula) {
+    public void deletePer(String auto) {
 
-        String sql = "DELETE FROM \"PERSONA \"WHERE \"PER_CEDULA \"='" + cedula + "';";
+        String sql = "DELETE FROM \"AURO \"WHERE \"AUT_PLACA \"='" + auto + "';";
         System.out.println("Base eliminada " + sql);
 
         MiBaseDatos.conectar();
@@ -115,12 +115,12 @@ public class ControladorAuto {
 
     }
     
-    public Persona printPer() {
+    public Auto printPer() {
         
-        Persona per = new Persona();
+        Auto auto = new Auto();
         try {
 
-            String sql = "SELECT * FROM \"Persona\"';";
+            String sql = "SELECT * FROM \"AUTO\"';";
             System.out.println("Base " + sql);
 
             MiBaseDatos.conectar();
@@ -129,11 +129,11 @@ public class ControladorAuto {
 
             while (res.next()) {
 
-                per.setCedula(res.getString("PER_CEDULA"));
-                per.setNombre(res.getString("PER_NOMBRE"));
-                per.setApellido(res.getString("PER_APELLIDO"));
-                per.setEdad(res.getInt("PER_EDAD"));
-                per.setDireccion(res.getString("PER_DIRECCION"));
+                auto.setPlaca(res.getString("AUT_PLACA"));
+                auto.setModelo(res.getString("AUT_MODELO"));
+                auto.setColor(res.getString("AUT_COLOR"));
+                auto.setAño(res.getString("AUT_AÑO"));
+                //per.setDireccion(res.getString("PER_DIRECCION"));
              
 
             }
@@ -146,7 +146,7 @@ public class ControladorAuto {
             error.printStackTrace();
 
         }
-        return per;
+        return auto;
     }
      
     
