@@ -101,21 +101,11 @@ public class Parqueadero extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int i=1;
+        int num,x;
         
-        int arreglo[] = new int [8];
-        arreglo[i]=(int)(Math.random()*8);
-        for(i=1; i<=8; i++){
-            arreglo[i]=(int)(Math.random()*8);
-              for(int j=1; j<i; j++){
-                if(arreglo [i]==arreglo[j]){
-                  //  i--;
-                }
-            }
-           txtnum.setText("");
-        }
-        for(int k=1; k<8; k++){
-            txtnum.setText(Integer.toString(arreglo[k]));
+        for(x=1;x<=8;x++){
+            num=1 + (int)(Math.random()*8);
+            txtnum.setText(Integer.toString(num));
           
         }
     }//GEN-LAST:event_jButton2ActionPerformed
