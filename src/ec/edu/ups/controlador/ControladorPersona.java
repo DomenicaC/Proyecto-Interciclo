@@ -27,7 +27,7 @@ public class ControladorPersona {
                 + "'" + persona.getNombre() + "',"
                 + "'"+ persona.getApellido() + "',"
                 +persona.getEdad() + ",'"               
-                + persona.getDireccion() + ");";
+                + persona.getDireccion() + "');";
         System.out.println(sql);
         MiBaseDatos.conectar();
         try {
