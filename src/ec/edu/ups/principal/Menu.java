@@ -7,6 +7,7 @@ package ec.edu.ups.principal;
 
 import ec.edu.ups.codigoQR.GenerarQR;
 import ec.edu.ups.codigoQR.LectorQR;
+import ec.edu.ups.persona.Crear;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,6 +21,7 @@ public class Menu extends javax.swing.JFrame {
      */
     private GenerarQR genQR;
     private LectorQR lecQR;
+    private Crear crearpersona;
 
     public Menu() {
         initComponents();
@@ -72,6 +74,11 @@ public class Menu extends javax.swing.JFrame {
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Open");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
@@ -235,6 +242,23 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_itemGeneActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = Crear.x;
+        try {
+            if (x == null) {
+                if (crearpersona == null || crearpersona.isVisible() == false) {
+                    crearpersona = new Crear();
+                    DesktopPane.add(crearpersona);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
