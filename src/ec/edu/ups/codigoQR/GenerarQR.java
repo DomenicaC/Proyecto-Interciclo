@@ -31,8 +31,8 @@ public class GenerarQR extends javax.swing.JInternalFrame {
     /**
      * Creates new form GenerarQR
      */
-    private int alto;
-    private int ancho;
+    int alto;
+    int ancho;
     public static String x;
 
     public GenerarQR() {
@@ -127,7 +127,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         jLabel5.setText("Tamaño:");
 
         jcbTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jcbTam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "100", "200", "300", "400" }));
+        jcbTam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "100", "200", "300", "400" }));
 
         txtNombre.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -173,36 +173,38 @@ public class GenerarQR extends javax.swing.JInternalFrame {
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtDato, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jlbRuta))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)))))
+                                .addGap(19, 19, 19)
+                                .addComponent(jlbRuta)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jcbTam, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGenerar)
-                    .addComponent(btnNuevo)
-                    .addComponent(btnCancelar))
-                .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jcbTam, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGenerar)
+                            .addComponent(btnNuevo)
+                            .addComponent(btnCancelar))
+                        .addGap(47, 47, 47))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,18 +223,21 @@ public class GenerarQR extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtDato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jlbRuta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNuevo)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancelar)))
-                .addGap(61, 61, 61))
+                        .addComponent(btnCancelar)
+                        .addGap(214, 214, 214))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jlbRuta)
+                        .addContainerGap(59, Short.MAX_VALUE))))
         );
 
         pack();
@@ -252,8 +257,29 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         String dato = txtDato.getText();
         String RutaImagen = "src\\ec\\edu\\ups\\codigoQRImagene\\" + nombre;
         String FormatoImagen = "gif";
-        alto = jcbTam.getSelectedIndex();
-        ancho = jcbTam.getSelectedIndex();
+        /*alto = jcbTam.getSelectedIndex();
+         ancho = jcbTam.getSelectedIndex();*/
+
+        //alto = Integer.parseInt(txtTam1.getText());
+        // ancho = Integer.parseInt(txtTam1.getText());
+        String seleccionado = jcbTam.getSelectedItem().toString();
+
+        if (seleccionado.equals("100")) {
+            ancho = 100;
+            alto = 100;
+        } else if (seleccionado.equals("200")) {
+            ancho = 200;
+            alto = 200;
+        } else if (seleccionado.equals("300")) {
+            ancho = 300;
+            alto = 300;
+        } else if (seleccionado.equals("400")) {
+            ancho = 400;
+            alto = 400;
+        } else if (seleccionado.equals("500")) {
+            ancho = 500;
+            alto = 500;
+        }
 
         BitMatrix bm;
         Writer writer = new QRCodeWriter();
@@ -280,7 +306,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
             }
 
             //invertir colores
-            imagen = invertirColor(imagen, ancho, alto);
+            imagen = invertirColor(imagen);
 
             try {
                 //guardar imagen
@@ -294,19 +320,15 @@ public class GenerarQR extends javax.swing.JInternalFrame {
             } catch (IOException ex) {
                 System.err.println("Error " + ex.toString());
             }
-            /*
-             Desktop d = Desktop.getDesktop();
-             try {
-             d.open(new File(RutaImagen));
-             } catch (IOException ex) {
-             System.err.println("Error " + ex.toString());
-             }*/
 
-            Graphics g = null;
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            Desktop d = Desktop.getDesktop();
+            try {
+                d.open(new File(RutaImagen));
+            } catch (IOException ex) {
+                System.err.println("Error " + ex.toString());
+            }
 
-            setOpaque(false);
-            jPanel1.paint(g);
+            jlbRuta.setText("Ruta: " + RutaImagen);
 
         } catch (WriterException ex) {
             System.err.println("Error de escritura " + ex.toString());
@@ -336,7 +358,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_formInternalFrameClosing
 
-    private BufferedImage invertirColor(BufferedImage imagen, int ancho, int alto) {
+    private BufferedImage invertirColor(BufferedImage imagen) {
 
         /**
          * Debido a un bug, las imágenes se crean con los colores invertidos (el
