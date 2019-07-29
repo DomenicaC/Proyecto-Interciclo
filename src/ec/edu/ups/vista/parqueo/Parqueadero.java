@@ -5,7 +5,7 @@
  */
 package ec.edu.ups.vista.parqueo;
 
-import gnu.io.NRSerialPort;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import panamahitek.Arduino.PanamaHitek_Arduino;
@@ -18,7 +18,7 @@ public class Parqueadero extends javax.swing.JFrame {
 
     PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
 
-    private NRSerialPort puertoUSB;
+   // private NRSerialPort puertoUSB;
 
     /**
      * Creates new form Parqueadero

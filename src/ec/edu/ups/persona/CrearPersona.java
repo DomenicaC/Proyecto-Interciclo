@@ -7,6 +7,7 @@ package ec.edu.ups.persona;
 
 import static ec.edu.ups.codigoQR.GenerarQR.x;
 import ec.edu.ups.controlador.ControladorPersona;
+import ec.edu.ups.principal.Menu;
 import java.sql.SQLException;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author erics
  */
-public class Crear extends javax.swing.JInternalFrame {
+public class CrearPersona extends javax.swing.JInternalFrame {
 
     
     
@@ -24,10 +25,15 @@ public class Crear extends javax.swing.JInternalFrame {
     /**
      * Creates new form Crear
      */
-    public Crear() {
+    public CrearPersona() {
         initComponents();
         controladorPersona = new ControladorPersona();
         x = "x";
+        int a = Menu.DesktopPane.getWidth() - this.getWidth();
+        int b = Menu.DesktopPane.getHeight() - this.getHeight();
+
+        setLocation(a / 2, b / 2);
+        setVisible(true);
     }
 
     /**
@@ -169,12 +175,14 @@ public class Crear extends javax.swing.JInternalFrame {
         persona.setApellido(apellido);
         persona.setCedula(txtcedula.getText());
         persona.setEdad(Integer.parseInt(txtedad.getText()));
+        persona.setDireccion(txtdireccion.getText());
         controladorPersona.create(persona);
         JOptionPane.showMessageDialog(this, "Persona Creada", "Crar Persona", JOptionPane.OK_OPTION);
         txtcedula.setText("");
         txtnombre.setText("");
         txtapellido.setText("");
         txtedad.setText("");
+        txtdireccion.setText("");
 
         
         

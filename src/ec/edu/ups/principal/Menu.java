@@ -7,7 +7,11 @@ package ec.edu.ups.principal;
 
 import ec.edu.ups.codigoQR.GenerarQR;
 import ec.edu.ups.codigoQR.LectorQR;
-import ec.edu.ups.persona.Crear;
+import ec.edu.ups.persona.BuscarPersona;
+import ec.edu.ups.persona.CrearPersona;
+import ec.edu.ups.persona.EliminarPersona;
+import ec.edu.ups.persona.ModificarPersona;
+import ec.edu.ups.vehiculo.CrearAuto;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +25,11 @@ public class Menu extends javax.swing.JFrame {
      */
     private GenerarQR genQR;
     private LectorQR lecQR;
-    private Crear crearpersona;
+    private CrearPersona crearpersona;
+    private BuscarPersona buscarpersona;
+    private ModificarPersona modificarpersona;
+    private EliminarPersona eliminarpersona;
+    private CrearAuto crearauto;
 
     public Menu() {
         initComponents();
@@ -82,16 +90,25 @@ public class Menu extends javax.swing.JFrame {
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
+        saveMenuItem.setText("Buscar");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
+        saveAsMenuItem.setText("Modificar");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
+        exitMenuItem.setText("Eliminar");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);
@@ -105,7 +122,12 @@ public class Menu extends javax.swing.JFrame {
         editMenu.setText("Vehiculo");
 
         cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
+        cutMenuItem.setText("Crear");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setMnemonic('y');
@@ -211,18 +233,30 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
+        String x = EliminarPersona.x;
+        try {
+            if (x == null) {
+                if (eliminarpersona == null || eliminarpersona.isVisible() == false) {
+                    eliminarpersona = new EliminarPersona();
+                    DesktopPane.add(eliminarpersona);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void itemGeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGeneActionPerformed
@@ -245,11 +279,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = Crear.x;
+         String x = CrearPersona.x;
         try {
             if (x == null) {
                 if (crearpersona == null || crearpersona.isVisible() == false) {
-                    crearpersona = new Crear();
+                    crearpersona = new CrearPersona();
                     DesktopPane.add(crearpersona);
                 }
             } else {
@@ -259,6 +293,57 @@ public class Menu extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = BuscarPersona.x;
+        try {
+            if (x == null) {
+                if (buscarpersona == null || buscarpersona.isVisible() == false) {
+                    buscarpersona = new BuscarPersona();
+                    DesktopPane.add(buscarpersona);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = ModificarPersona.x;
+        try {
+            if (x == null) {
+                if (modificarpersona == null || modificarpersona.isVisible() == false) {
+                    modificarpersona = new ModificarPersona();
+                    DesktopPane.add(modificarpersona);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = CrearAuto.x;
+        try {
+            if (x == null) {
+                if (crearauto == null || crearauto.isVisible() == false) {
+                    crearauto = new CrearAuto();
+                    DesktopPane.add(crearauto);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_cutMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,14 +16,14 @@ public class Auto extends Persona {
     private String placa;
     private String modelo;
     private String color;
-    private String año;
+    private int año;
     private String perCedula;
 
     public Auto() {
 
     }
 
-    public Auto(String placa, String modelo, String color, String año, String perCedula) {
+    public Auto(String placa, String modelo, String color, int año, String perCedula) {
         this.placa = placa;
         this.modelo = modelo;
         this.color = color;
@@ -55,11 +55,11 @@ public class Auto extends Persona {
         this.color = color;
     }
 
-    public String getAño() {
+    public int getAño() {
         return año;
     }
 
-    public void setAño(String año) {
+    public void setAño(int año) {
         this.año = año;
     }
 
@@ -73,7 +73,7 @@ public class Auto extends Persona {
 
     @Override
     public String toString() {
-        return "Auto{" + "placa=" + placa + ", modelo=" + modelo + ", color=" + color + ", a\u00f1o=" + año + ", perCedula=" + perCedula + '}';
+        return "Auto{" + "placa=" + placa + ", modelo=" + modelo + ", color=" + color + ", año=" + año + ", perCedula=" + perCedula + '}';
     }
 
 }

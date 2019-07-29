@@ -25,11 +25,11 @@ public class ControladorAuto {
     }
 
     public void create(Auto auto) {
-        String sql = "INSERT INTO \"AUTO\" VALUES('" + auto.getPlaca() + "',"
-                + "'" + auto.getModelo() + "',"
-                + "'" + auto.getColor() + "',"
-                + auto.getAño() + ",'"
-                + auto.getPerCedula() + ");";
+        String sql = "INSERT INTO \"AUTO\" VALUES('" + auto.getPlaca()
+                + "','" + auto.getModelo() + "'"
+                + ",'" + auto.getColor() + "','"
+                + auto.getAño() + "','"
+                + auto.getPerCedula() + "');";
 
         System.out.println(sql);
         MiBaseDatos.conectar();
@@ -61,7 +61,7 @@ public class ControladorAuto {
                 auto.setPlaca(placa);
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
-                auto.setAño(String.valueOf(res.getInt("AUT_AÑO")));
+                auto.setAño(res.getInt("AUT_AÑO"));
                 auto.setPerCedula(res.getString("PER_CEDULA"));
 
             }
@@ -139,7 +139,7 @@ public class ControladorAuto {
                 auto.setPlaca(res.getString("AUT_PLACA"));
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
-                auto.setAño(String.valueOf(res.getInt("AUT_AÑO")));
+                auto.setAño(res.getInt("AUT_AÑO"));
                 auto.setPerCedula(res.getString("PER_CEDULA"));
                 lista.add(auto);
 

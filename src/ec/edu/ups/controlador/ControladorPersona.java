@@ -69,32 +69,22 @@ public class ControladorPersona {
         return per;
     }
 
-    public void updatePer(Persona persona, String cedula) {
-        
-        String sql = "UPDATE \"PERSONA \" SET('" + persona.getCedula() + "','"
-                + persona.getNombre() + "','"
-                + persona.getApellido() + "',"
-                + persona.getEdad() + ",'"
-                + persona.getDireccion()+ ")\"WHERE \"PER_CEDULA\"='" + cedula + "';";
-        System.out.println("Base de datos " + sql);
-
+    public void modificar(Persona p) throws SQLException {
+        String sql = "UPDATE\"PERSONA\" SET \"PER_NOMBRE\" = '" 
+                + p.getNombre() + "',\"PER_APELLIDO\" = '" + p.getApellido() + "',\"PER_EDAD\" = " 
+                + p.getEdad() + ",\"PER_DIRECCION\" = '" + p.getDireccion() +"';";
+        System.out.println(sql);
         MiBaseDatos.conectar();
         try {
-
             Statement sta = MiBaseDatos.getConexionBD().createStatement();
             sta.execute(sql);
             MiBaseDatos.desconectar();
-
-        } catch (SQLException error) {
-
-            error.printStackTrace();
-
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-
     }
     public void deletePer(String cedula) {
-
-        String sql = "DELETE FROM \"PERSONA \"WHERE \"PER_CEDULA \"='" + cedula + "';";
+        String sql = "DELETE FROM \"PERSONA\"WHERE \"PER_CEDULA\" = '" + cedula + "';";
         System.out.println("Base eliminada " + sql);
 
         MiBaseDatos.conectar();
