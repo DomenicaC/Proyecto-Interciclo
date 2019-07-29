@@ -10,6 +10,7 @@ import com.google.zxing.Writer;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import ec.edu.ups.principal.Menu;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.awt.Graphics;
@@ -26,14 +27,23 @@ import javax.imageio.ImageIO;
  */
 public class GenerarQR extends javax.swing.JInternalFrame {
 
+    //import ec.edu.ups.principal.Menu;
     /**
      * Creates new form GenerarQR
      */
     private int alto;
     private int ancho;
+    public static String x;
 
     public GenerarQR() {
         initComponents();
+        x = "x";
+
+        int a = Menu.DesktopPane.getWidth() - this.getWidth();
+        int b = Menu.DesktopPane.getHeight() - this.getHeight();
+
+        setLocation(a / 2, b / 2);
+        setVisible(true);
     }
 
     /**
@@ -58,6 +68,27 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 3, 36)); // NOI18N
         jLabel1.setText("Generardor de Codigo QR");
@@ -292,8 +323,18 @@ public class GenerarQR extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+
+        this.setVisible(false);
+        this.dispose();
+        x = null;
+
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+
+        x = null;
+
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private BufferedImage invertirColor(BufferedImage imagen, int ancho, int alto) {
 

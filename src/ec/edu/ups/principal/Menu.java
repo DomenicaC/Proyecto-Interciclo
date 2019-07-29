@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.principal;
 
+import ec.edu.ups.codigoQR.GenerarQR;
+import ec.edu.ups.codigoQR.LectorQR;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Domenica Cañizares
@@ -14,6 +18,9 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    private GenerarQR genQR;
+    private LectorQR lecQR;
+
     public Menu() {
         initComponents();
     }
@@ -27,7 +34,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        DesktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -45,6 +52,18 @@ public class Menu extends javax.swing.JFrame {
         helpMenu1 = new javax.swing.JMenu();
         contentMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem1 = new javax.swing.JMenuItem();
+        helpMenu2 = new javax.swing.JMenu();
+        contentMenuItem2 = new javax.swing.JMenuItem();
+        aboutMenuItem2 = new javax.swing.JMenuItem();
+        helpMenu3 = new javax.swing.JMenu();
+        contentMenuItem3 = new javax.swing.JMenuItem();
+        aboutMenuItem3 = new javax.swing.JMenuItem();
+        helpMenu4 = new javax.swing.JMenu();
+        contentMenuItem4 = new javax.swing.JMenuItem();
+        aboutMenuItem4 = new javax.swing.JMenuItem();
+        helpMenu5 = new javax.swing.JMenu();
+        itemGene = new javax.swing.JMenuItem();
+        itemLector = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +139,64 @@ public class Menu extends javax.swing.JFrame {
         aboutMenuItem1.setText("About");
         helpMenu1.add(aboutMenuItem1);
 
+        helpMenu2.setMnemonic('h');
+        helpMenu2.setText("Parqueo");
+
+        contentMenuItem2.setMnemonic('c');
+        contentMenuItem2.setText("Contents");
+        helpMenu2.add(contentMenuItem2);
+
+        aboutMenuItem2.setMnemonic('a');
+        aboutMenuItem2.setText("About");
+        helpMenu2.add(aboutMenuItem2);
+
+        helpMenu1.add(helpMenu2);
+
+        helpMenu3.setMnemonic('h');
+        helpMenu3.setText("Parqueo");
+
+        contentMenuItem3.setMnemonic('c');
+        contentMenuItem3.setText("Contents");
+        helpMenu3.add(contentMenuItem3);
+
+        aboutMenuItem3.setMnemonic('a');
+        aboutMenuItem3.setText("About");
+        helpMenu3.add(aboutMenuItem3);
+
+        helpMenu4.setMnemonic('h');
+        helpMenu4.setText("Parqueo");
+
+        contentMenuItem4.setMnemonic('c');
+        contentMenuItem4.setText("Contents");
+        helpMenu4.add(contentMenuItem4);
+
+        aboutMenuItem4.setMnemonic('a');
+        aboutMenuItem4.setText("About");
+        helpMenu4.add(aboutMenuItem4);
+
+        helpMenu3.add(helpMenu4);
+
+        helpMenu1.add(helpMenu3);
+
         menuBar.add(helpMenu1);
+
+        helpMenu5.setMnemonic('h');
+        helpMenu5.setText("Codigo QR");
+
+        itemGene.setMnemonic('c');
+        itemGene.setText("Generar Codigo QR");
+        itemGene.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemGeneActionPerformed(evt);
+            }
+        });
+        helpMenu5.add(itemGene);
+
+        itemLector.setMnemonic('a');
+        itemLector.setText("Lector de Codigo QR");
+        helpMenu5.add(itemLector);
+
+        menuBar.add(helpMenu5);
 
         setJMenuBar(menuBar);
 
@@ -128,11 +204,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
         );
 
         pack();
@@ -141,6 +217,24 @@ public class Menu extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void itemGeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGeneActionPerformed
+
+        String x = GenerarQR.x;
+        try {
+            if (x == null) {
+                if (genQR == null || genQR.isVisible() == false) {
+                    genQR = new GenerarQR();
+                    DesktopPane.add(genQR);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_itemGeneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,19 +272,31 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JDesktopPane DesktopPane;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem aboutMenuItem1;
+    private javax.swing.JMenuItem aboutMenuItem2;
+    private javax.swing.JMenuItem aboutMenuItem3;
+    private javax.swing.JMenuItem aboutMenuItem4;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem contentMenuItem1;
+    private javax.swing.JMenuItem contentMenuItem2;
+    private javax.swing.JMenuItem contentMenuItem3;
+    private javax.swing.JMenuItem contentMenuItem4;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu helpMenu1;
+    private javax.swing.JMenu helpMenu2;
+    private javax.swing.JMenu helpMenu3;
+    private javax.swing.JMenu helpMenu4;
+    private javax.swing.JMenu helpMenu5;
+    private javax.swing.JMenuItem itemGene;
+    private javax.swing.JMenuItem itemLector;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
