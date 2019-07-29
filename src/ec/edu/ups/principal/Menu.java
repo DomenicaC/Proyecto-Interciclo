@@ -9,7 +9,7 @@ import ec.edu.ups.codigoQR.GenerarQR;
 import ec.edu.ups.codigoQR.LectorQR;
 import ec.edu.ups.persona.BuscarPersona;
 import ec.edu.ups.persona.CrearPersona;
-import ec.edu.ups.persona.EliminarPersona;
+import ec.edu.ups.persona.ListarPersona;
 import ec.edu.ups.persona.ModificarPersona;
 import ec.edu.ups.vehiculo.CrearAuto;
 import javax.swing.JOptionPane;
@@ -28,7 +28,7 @@ public class Menu extends javax.swing.JFrame {
     private CrearPersona crearpersona;
     private BuscarPersona buscarpersona;
     private ModificarPersona modificarpersona;
-    private EliminarPersona eliminarpersona;
+    private ListarPersona eliminarpersona;
     private CrearAuto crearauto;
 
     public Menu() {
@@ -108,7 +108,7 @@ public class Menu extends javax.swing.JFrame {
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Eliminar");
+        exitMenuItem.setText("Listar");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);
@@ -244,11 +244,11 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        String x = EliminarPersona.x;
+        String x = ListarPersona.x;
         try {
             if (x == null) {
                 if (eliminarpersona == null || eliminarpersona.isVisible() == false) {
-                    eliminarpersona = new EliminarPersona();
+                    eliminarpersona = new ListarPersona();
                     DesktopPane.add(eliminarpersona);
                 }
             } else {

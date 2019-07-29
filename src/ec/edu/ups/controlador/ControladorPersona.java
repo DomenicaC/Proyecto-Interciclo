@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -101,36 +103,32 @@ public class ControladorPersona {
         }
 
     } 
-    public Persona printPer() {
-        
-        Persona per = new Persona();
-        try {
+    public Set Listar() {
 
-            String sql = "SELECT * FROM \"PERSONA\"';";
-            System.out.println("Base " + sql);
+        Set<Persona> lista = new HashSet<>();
+        try {
+            String sql = "SELECT * FROM \"PERSONA\";";
+            System.out.println(sql);
 
             MiBaseDatos.conectar();
             Statement sta = MiBaseDatos.getConexionBD().createStatement();
-            ResultSet res = sta.executeQuery(sql);
-
-            while (res.next()) {
-
-                per.setCedula(res.getString("PER_CEDULA"));
-                per.setNombre(res.getString("PER_NOMBRE"));
-                per.setApellido(res.getString("PER_APELLIDO"));
-                per.setEdad(res.getInt("PER_EDAD"));
-                per.setDireccion(res.getString("PER_DIRECCION"));
+            ResultSet rs = sta.executeQuery(sql);
+            while (rs.next()) {
+                Persona p = new Persona();
+                p.setCedula(rs.getString("PER_CEDULA"));
+                p.setApellido(rs.getString("PER_APELLIDO"));
+                p.setNombre(rs.getString("PER_NOMBRE"));
+                p.setEdad(rs.getInt("PER_EDAD"));
+                p.setDireccion(rs.getString("PER_DIRECCION"));
+                
+                lista.add(p);
             }
-            res.close();
-            sta.close();
+
             MiBaseDatos.desconectar();
 
-        } catch (SQLException error) {
-
-            error.printStackTrace();
-
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return per;
+        return lista;
     }
-
 }
