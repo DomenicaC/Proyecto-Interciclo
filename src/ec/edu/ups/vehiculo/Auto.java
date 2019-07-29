@@ -12,22 +12,23 @@ import ec.edu.ups.persona.Persona;
  * @author erics
  */
 public class Auto extends Persona {
+
     private String placa;
     private String modelo;
     private String color;
     private String año;
-    private Persona perosna;
-    
-    public Auto (){
-        
+    private String perCedula;
+
+    public Auto() {
+
     }
 
-    public Auto(String placa, String modelo, String color, String año, Persona perosna) {
+    public Auto(String placa, String modelo, String color, String año, String perCedula) {
         this.placa = placa;
         this.modelo = modelo;
         this.color = color;
         this.año = año;
-        this.perosna = perosna;
+        this.perCedula = perCedula;
     }
 
     public String getPlaca() {
@@ -62,18 +63,17 @@ public class Auto extends Persona {
         this.año = año;
     }
 
-    public Persona getPerosna() {
-        return perosna;
+    public String getPerCedula() {
+        return perCedula;
     }
 
-    public void setPerosna(Persona perosna) {
-        this.perosna = perosna;
+    public void setPerCedula(String perCedula) {
+        this.perCedula = perCedula;
     }
 
     @Override
     public String toString() {
-        return "Auto{" + "placa=" + placa + ", modelo=" + modelo + ", color=" + color + ", a\u00f1o=" + año + ", perosna=" + perosna + '}';
+        return "Auto{" + "placa=" + placa + ", modelo=" + modelo + ", color=" + color + ", a\u00f1o=" + año + ", perCedula=" + perCedula + '}';
     }
-    
 
 }

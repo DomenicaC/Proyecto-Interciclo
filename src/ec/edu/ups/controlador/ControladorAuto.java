@@ -5,18 +5,20 @@
  */
 package ec.edu.ups.controlador;
 
-import ec.edu.ups.persona.Persona;
 import ec.edu.ups.vehiculo.Auto;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author erics
  */
 public class ControladorAuto {
-     private BaseDeDatos MiBaseDatos;
+
+    private BaseDeDatos MiBaseDatos;
 
     public ControladorAuto() {
         MiBaseDatos = new BaseDeDatos();
@@ -25,20 +27,25 @@ public class ControladorAuto {
     public void create(Auto auto) {
         String sql = "INSERT INTO \"AUTO\" VALUES('" + auto.getPlaca() + "',"
                 + "'" + auto.getModelo() + "',"
-                + "'"+ auto.getColor() + "',"
-                +auto.getAño() + ",'"               
-                + auto.getPerosna() + ");";
+                + "'" + auto.getColor() + "',"
+                + auto.getAño() + ",'"
+                + auto.getPerCedula() + ");";
+
         System.out.println(sql);
         MiBaseDatos.conectar();
         try {
+
             Statement sta = MiBaseDatos.getConexionBD().createStatement();
             sta.execute(sql);
             MiBaseDatos.desconectar();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    public Auto BuscaarPersona(String placa)  {
+
+    public Auto BuscarAuto(String placa) {
+
         Auto auto = new Auto();
         try {
 
@@ -54,9 +61,8 @@ public class ControladorAuto {
                 auto.setPlaca(placa);
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
-                auto.setAño(res.getString("AUT_AÑO"));
-                //auto.setPerosna(res.getString("PER_CEDULA"));
-               
+                auto.setAño(String.valueOf(res.getInt("AUT_AÑO")));
+                auto.setPerCedula(res.getString("PER_CEDULA"));
 
             }
             res.close();
@@ -71,13 +77,13 @@ public class ControladorAuto {
         return auto;
     }
 
-    public void updatePer(Auto auto, String placa) {
-        
-        String sql = "UPDATE \"AUTO \" SET('" + auto.getPlaca() + "','"
-                + auto.getModelo() + "','"
-                + auto.getColor() + "',"
-                + auto.getAño() + ",'"
-                + auto.getPerosna()+ ")\"WHERE \"AUT_PLACA\"='" + placa + "';";
+    public void updateAuto(Auto auto) {
+
+        String sql = "UPDATE \"AUTO \" SET \"AUT_MODELO\" = '"
+                + auto.getModelo() + "', \"AUT_COLOR\" = '"
+                + auto.getColor() + "', \"AUT_AÑO\" = "
+                + auto.getAño() + ", \"PER_CEDULA \" = '"
+                + auto.getPerCedula() + "' WHERE \"AUT_PLACA\" ='" + auto.getPlaca() + "';";
         System.out.println("Base de datos " + sql);
 
         MiBaseDatos.conectar();
@@ -95,7 +101,7 @@ public class ControladorAuto {
 
     }
 
-    public void deletePer(String auto) {
+    public void deleteAuto(String auto) {
 
         String sql = "DELETE FROM \"AUTO \"WHERE \"AUT_PLACA \"='" + auto + "';";
         System.out.println("Base eliminada " + sql);
@@ -114,14 +120,14 @@ public class ControladorAuto {
         }
 
     }
-    
-    public Auto printPer() {
-        
-        Auto auto = new Auto();
+
+    public Set printAuto() {
+
+        Set<Auto> lista = new HashSet<>();
         try {
 
-            String sql = "SELECT * FROM \"AUTO\"';";
-            System.out.println("Base " + sql);
+            String sql = "SELECT * FROM \"AUTO\";";
+            System.out.println("Base listar" + sql);
 
             MiBaseDatos.conectar();
             Statement sta = MiBaseDatos.getConexionBD().createStatement();
@@ -129,12 +135,13 @@ public class ControladorAuto {
 
             while (res.next()) {
 
+                Auto auto = new Auto();
                 auto.setPlaca(res.getString("AUT_PLACA"));
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
-                auto.setAño(res.getString("AUT_AÑO"));
-                //per.setDireccion(res.getString("PER_DIRECCION"));
-             
+                auto.setAño(String.valueOf(res.getInt("AUT_AÑO")));
+                auto.setPerCedula(res.getString("PER_CEDULA"));
+                lista.add(auto);
 
             }
             res.close();
@@ -146,12 +153,9 @@ public class ControladorAuto {
             error.printStackTrace();
 
         }
-        return auto;
+
+        return lista;
+
     }
-     
-    
-    
-    
-    
-    
+
 }

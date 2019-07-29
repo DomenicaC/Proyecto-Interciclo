@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vehiculoRobado;
+package ec.edu.ups.Informes;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class eliminarClase5 {
+public class Eliminar {
     
 }

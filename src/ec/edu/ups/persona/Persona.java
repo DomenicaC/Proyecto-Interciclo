@@ -10,14 +10,15 @@ package ec.edu.ups.persona;
  * @author erics
  */
 public class Persona {
+
     private String cedula;
     private String nombre;
     private String apellido;
     private int edad;
     private String direccion;
-    
-    public Persona(){
-        
+
+    public Persona() {
+
     }
 
     public Persona(String cedula, String nombre, String apellido, int edad, String direccion) {
@@ -72,6 +73,5 @@ public class Persona {
     public String toString() {
         return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", direccion=" + direccion + '}';
     }
-    
-    
+
 }

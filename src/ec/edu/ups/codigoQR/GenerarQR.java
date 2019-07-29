@@ -11,15 +11,14 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import ec.edu.ups.principal.Menu;
-import java.awt.BorderLayout;
 import java.awt.Desktop;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -60,7 +59,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         btnGenerar = new javax.swing.JButton();
         jlbRuta = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jpnCodigo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jcbTam = new javax.swing.JComboBox();
         txtNombre = new javax.swing.JTextField();
@@ -110,16 +109,16 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         jlbRuta.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jlbRuta.setText("Ruta:");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo QR"));
+        jpnCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo QR"));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jpnCodigoLayout = new javax.swing.GroupLayout(jpnCodigo);
+        jpnCodigo.setLayout(jpnCodigoLayout);
+        jpnCodigoLayout.setHorizontalGroup(
+            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 318, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jpnCodigoLayout.setVerticalGroup(
+            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 241, Short.MAX_VALUE)
         );
 
@@ -127,7 +126,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         jLabel5.setText("Tamaño:");
 
         jcbTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jcbTam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "100", "200", "300", "400" }));
+        jcbTam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elegir tamaño", "100", "200", "300", "400", "500" }));
 
         txtNombre.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +173,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(28, 28, 28)
@@ -227,17 +226,17 @@ public class GenerarQR extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGenerar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(13, 13, 13)
                         .addComponent(btnNuevo)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelar)
                         .addGap(214, 214, 214))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jlbRuta)
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                        .addContainerGap(26, Short.MAX_VALUE))))
         );
 
         pack();
@@ -257,28 +256,37 @@ public class GenerarQR extends javax.swing.JInternalFrame {
         String dato = txtDato.getText();
         String RutaImagen = "src\\ec\\edu\\ups\\codigoQRImagene\\" + nombre;
         String FormatoImagen = "gif";
-        /*alto = jcbTam.getSelectedIndex();
-         ancho = jcbTam.getSelectedIndex();*/
 
-        //alto = Integer.parseInt(txtTam1.getText());
-        // ancho = Integer.parseInt(txtTam1.getText());
         String seleccionado = jcbTam.getSelectedItem().toString();
+        if (seleccionado.equals("Elegir tamaño")) {
 
-        if (seleccionado.equals("100")) {
+            JOptionPane.showMessageDialog(this, "No ha elegido el tamaño \n Porfavor elija una opción");
+
+        } else if (seleccionado.equals("100")) {
+
             ancho = 100;
             alto = 100;
+
         } else if (seleccionado.equals("200")) {
+
             ancho = 200;
             alto = 200;
+
         } else if (seleccionado.equals("300")) {
+
             ancho = 300;
             alto = 300;
+
         } else if (seleccionado.equals("400")) {
+
             ancho = 400;
             alto = 400;
+
         } else if (seleccionado.equals("500")) {
+
             ancho = 500;
             alto = 500;
+
         }
 
         BitMatrix bm;
@@ -329,6 +337,7 @@ public class GenerarQR extends javax.swing.JInternalFrame {
             }
 
             jlbRuta.setText("Ruta: " + RutaImagen);
+            //jpnCodigo.contains(RutaImagen);
 
         } catch (WriterException ex) {
             System.err.println("Error de escritura " + ex.toString());
@@ -341,7 +350,12 @@ public class GenerarQR extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
+
+        txtDato.setText("");
+        txtNombre.setText("");
+        //jpnCodigo.c
+        jlbRuta.setText("Ruta: ");
+
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -393,9 +407,9 @@ public class GenerarQR extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox jcbTam;
     private javax.swing.JLabel jlbRuta;
+    private javax.swing.JPanel jpnCodigo;
     private javax.swing.JTextField txtDato;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
