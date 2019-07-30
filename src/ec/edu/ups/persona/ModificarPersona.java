@@ -31,8 +31,8 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
         initComponents();
         controladorPersona = new ControladorPersona();
         x = "x";
-        int a = Menu.DesktopPane.getWidth() - this.getWidth();
-        int b = Menu.DesktopPane.getHeight() - this.getHeight();
+        int a = Menu.desktopPane.getWidth() - this.getWidth();
+        int b = Menu.desktopPane.getHeight() - this.getHeight();
 
         setLocation(a / 2, b / 2);
         setVisible(true);

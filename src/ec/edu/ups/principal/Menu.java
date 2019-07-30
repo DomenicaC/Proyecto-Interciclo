@@ -50,7 +50,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DesktopPane = new javax.swing.JDesktopPane();
+        desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -228,7 +228,6 @@ public class Menu extends javax.swing.JFrame {
         helpMenu5.setMnemonic('h');
         helpMenu5.setText("Codigo QR");
 
-        itemGene.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         itemGene.setMnemonic('c');
         itemGene.setText("Generar Codigo QR");
         itemGene.addActionListener(new java.awt.event.ActionListener() {
@@ -238,14 +237,8 @@ public class Menu extends javax.swing.JFrame {
         });
         helpMenu5.add(itemGene);
 
-        itemLector.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         itemLector.setMnemonic('a');
         itemLector.setText("Lector de Codigo QR");
-        itemLector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemLectorActionPerformed(evt);
-            }
-        });
         helpMenu5.add(itemLector);
 
         menuBar.add(helpMenu5);
@@ -256,11 +249,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 727, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         pack();
@@ -273,7 +266,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (eliminarpersona == null || eliminarpersona.isVisible() == false) {
                     eliminarpersona = new ListarPersona();
-                    DesktopPane.add(eliminarpersona);
+                    desktopPane.add(eliminarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -291,7 +284,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (genQR == null || genQR.isVisible() == false) {
                     genQR = new GenerarQR();
-                    DesktopPane.add(genQR);
+                    desktopPane.add(genQR);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -309,7 +302,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (crearpersona == null || crearpersona.isVisible() == false) {
                     crearpersona = new CrearPersona();
-                    DesktopPane.add(crearpersona);
+                    desktopPane.add(crearpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -327,7 +320,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (buscarpersona == null || buscarpersona.isVisible() == false) {
                     buscarpersona = new BuscarPersona();
-                    DesktopPane.add(buscarpersona);
+                    desktopPane.add(buscarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -345,7 +338,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (modificarpersona == null || modificarpersona.isVisible() == false) {
                     modificarpersona = new ModificarPersona();
-                    DesktopPane.add(modificarpersona);
+                    desktopPane.add(modificarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -363,7 +356,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (crearauto == null || crearauto.isVisible() == false) {
                     crearauto = new CrearAuto();
-                    DesktopPane.add(crearauto);
+                    desktopPane.add(crearauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -381,7 +374,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (buscarauto == null || buscarauto.isVisible() == false) {
                     buscarauto = new BuscarAuto();
-                    DesktopPane.add(buscarauto);
+                    desktopPane.add(buscarauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -399,7 +392,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (modificarauto == null || modificarauto.isVisible() == false) {
                     modificarauto = new ModificarAuto();
-                    DesktopPane.add(modificarauto);
+                    desktopPane.add(modificarauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -409,24 +402,6 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_pasteMenuItemActionPerformed
-
-    private void itemLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLectorActionPerformed
-
-        String x = LectorQR.x;
-        try {
-            if (x == null) {
-                if (lecQR == null || lecQR.isVisible() == false) {
-                    lecQR = new LectorQR();
-                    DesktopPane.add(lecQR);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }//GEN-LAST:event_itemLectorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,7 +439,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDesktopPane DesktopPane;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
@@ -478,6 +452,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
+    public static javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
