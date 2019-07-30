@@ -20,6 +20,8 @@ import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
@@ -33,18 +35,18 @@ public class LectorQR extends javax.swing.JInternalFrame {
      * Creates new form LectorQR
      */
     public static String x;
-    
+
     public LectorQR() {
         initComponents();
-        
+
         x = "x";
-        
+
         int a = Menu.DesktopPane.getWidth() - this.getWidth();
         int b = Menu.DesktopPane.getHeight() - this.getHeight();
-        
+
         setLocation(a / 2, b / 2);
         setVisible(true);
-        
+
     }
 
     /**
@@ -66,6 +68,28 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblDatos = new javax.swing.JLabel();
         jlbRuta1 = new javax.swing.JLabel();
         txtUbicacion = new javax.swing.JTextField();
+        lblFecha = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         btnBuscar.setText("Buscar");
@@ -92,7 +116,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         );
 
         lblTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblTam.setText("Tamaño:");
+        lblTam.setText("Tamaño archivo:");
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 3, 36)); // NOI18N
         jLabel1.setText("Lector de Codigo QR");
@@ -121,85 +145,93 @@ public class LectorQR extends javax.swing.JInternalFrame {
             }
         });
 
+        lblFecha.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblFecha.setText("Fecha Modificacion:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jlbRuta1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDatos)
-                                    .addComponent(lblRuta)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblNombre)
-                                        .addGap(202, 202, 202)
-                                        .addComponent(lblTam)))
-                                .addGap(105, 127, Short.MAX_VALUE)))
+                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBuscar)
                             .addComponent(btnCancelar))
-                        .addGap(47, 47, 47))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblDatos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTam))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlbRuta1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 119, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFecha)
+                        .addGap(142, 142, 142))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(lblRuta)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbRuta1)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
+                    .addComponent(lblFecha))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDatos)
                     .addComponent(lblTam))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancelar)
-                        .addGap(214, 214, 214))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblDatos)
-                        .addGap(18, 18, 18)
-                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(lblRuta)
-                        .addGap(24, 24, 24))))
+                        .addComponent(btnCancelar)))
+                .addGap(18, 18, 18)
+                .addComponent(lblRuta)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
-        String RutaImagen = txtUbicacion.getText();
+
+        String RutaImagen = txtUbicacion.getText().trim();
         Reader lector = new MultiFormatReader();
         File ubicacion = new File(RutaImagen);
         System.out.println("Ubicacion " + ubicacion);
         BufferedImage imagen;
-        
+
         if (ubicacion.exists()) {
-            
+
             System.out.println("Archivo Encontrado");
             JOptionPane.showMessageDialog(this, "Archivo Encontrado");
             try {
@@ -214,7 +246,23 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 Result resultado = lector.decode(mapabits);
                 System.out.println("Contenido mapa " + resultado.getText());
                 lblDatos.setText("Datos que contiene el codigo: " + resultado.getText());
-                
+
+                String nombre = ubicacion.getName();
+                lblNombre.setText("Nombre Archivo: " + nombre);
+
+                String path = ubicacion.getAbsolutePath().trim();
+                lblRuta.setText("Ruta: " + path);
+
+                long tam = ubicacion.length();
+                long kb = tam / 1024;
+                lblTam.setText("Tamaño archivo: " + kb + " kb");
+
+                long fechaMod = ubicacion.lastModified();
+                Date fecha = new Date(fechaMod);
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                String fechaText = formatoFecha.format(fecha);
+                lblFecha.setText("Fecha Modificacion: " + fechaText);
+
             } catch (NotFoundException ex) {
                 System.err.println("Archivo no existe " + ex.toString());
             } catch (ChecksumException ex) {
@@ -224,9 +272,9 @@ public class LectorQR extends javax.swing.JInternalFrame {
             } catch (IOException ex) {
                 System.err.println("Error " + ex.toString());
             }
-            
+
         }
-        
+
         Desktop d = Desktop.getDesktop();
         try {
             d.open(new File(RutaImagen));
@@ -237,7 +285,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        
+
         this.setVisible(false);
         this.dispose();
         x = null;
@@ -248,6 +296,12 @@ public class LectorQR extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUbicacionActionPerformed
 
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+
+        x = null;
+
+    }//GEN-LAST:event_formInternalFrameClosing
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
@@ -256,6 +310,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jlbRuta1;
     private javax.swing.JPanel jpnCodigo;
     private javax.swing.JLabel lblDatos;
+    private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRuta;
     private javax.swing.JLabel lblTam;

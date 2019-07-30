@@ -265,6 +265,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+
         String x = ListarPersona.x;
         try {
             if (x == null) {
@@ -278,6 +279,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void itemGeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGeneActionPerformed
@@ -299,7 +301,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_itemGeneActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = CrearPersona.x;
         try {
             if (x == null) {
@@ -313,10 +315,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = BuscarPersona.x;
         try {
             if (x == null) {
@@ -330,10 +333,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = ModificarPersona.x;
         try {
             if (x == null) {
@@ -347,10 +351,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = CrearAuto.x;
         try {
             if (x == null) {
@@ -364,10 +369,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = BuscarAuto.x;
         try {
             if (x == null) {
@@ -381,10 +387,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
-        // TODO add your handling code here:
+
         String x = ModificarAuto.x;
         try {
             if (x == null) {
@@ -398,6 +405,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     private void itemLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLectorActionPerformed
