@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,7 +61,6 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         btnBuscar = new javax.swing.JButton();
         lblRuta = new javax.swing.JLabel();
-        jpnCodigo = new javax.swing.JPanel();
         lblTam = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -69,6 +69,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         jlbRuta1 = new javax.swing.JLabel();
         txtUbicacion = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -102,19 +103,6 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblRuta.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblRuta.setText("Ruta:");
 
-        jpnCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo QR"));
-
-        javax.swing.GroupLayout jpnCodigoLayout = new javax.swing.GroupLayout(jpnCodigo);
-        jpnCodigo.setLayout(jpnCodigoLayout);
-        jpnCodigoLayout.setHorizontalGroup(
-            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 341, Short.MAX_VALUE)
-        );
-        jpnCodigoLayout.setVerticalGroup(
-            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 254, Short.MAX_VALUE)
-        );
-
         lblTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblTam.setText("Tamaño archivo:");
 
@@ -133,7 +121,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         });
 
         lblDatos.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblDatos.setText("Datos que contiene el codigo:");
+        lblDatos.setText("Placa:");
 
         jlbRuta1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jlbRuta1.setText("Ubicacion:");
@@ -148,56 +136,58 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblFecha.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblFecha.setText("Fecha Modificacion:");
 
+        lblImagen.setText("imagen");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar)
-                            .addComponent(btnCancelar))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDatos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTam))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlbRuta1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 119, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblFecha)
-                        .addGap(142, 142, 142))))
+                    .addComponent(btnBuscar)
+                    .addComponent(btnCancelar))
+                .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(lblNombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFecha)
+                .addGap(65, 65, 65))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jlbRuta1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(198, 198, 198))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lblRuta)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(lblRuta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(lblDatos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTam)
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbRuta1)
                     .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(lblFecha))
@@ -207,16 +197,16 @@ public class LectorQR extends javax.swing.JInternalFrame {
                     .addComponent(lblTam))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(87, 87, 87)
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancelar)))
+                        .addComponent(btnCancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(lblRuta)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,23 +235,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 //obtener datos del codigo qr
                 Result resultado = lector.decode(mapabits);
                 System.out.println("Contenido mapa " + resultado.getText());
-                lblDatos.setText("Datos que contiene el codigo: " + resultado.getText());
-
-                String nombre = ubicacion.getName();
-                lblNombre.setText("Nombre Archivo: " + nombre);
-
-                String path = ubicacion.getAbsolutePath().trim();
-                lblRuta.setText("Ruta: " + path);
-
-                long tam = ubicacion.length();
-                long kb = tam / 1024;
-                lblTam.setText("Tamaño archivo: " + kb + " kb");
-
-                long fechaMod = ubicacion.lastModified();
-                Date fecha = new Date(fechaMod);
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-                String fechaText = formatoFecha.format(fecha);
-                lblFecha.setText("Fecha Modificacion: " + fechaText);
+                lblDatos.setText("Placa: " + resultado.getText());
 
             } catch (NotFoundException ex) {
                 System.err.println("Archivo no existe " + ex.toString());
@@ -275,12 +249,36 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         }
 
-        Desktop d = Desktop.getDesktop();
+        //nombre del archivo
+        String nombre = ubicacion.getName();
+        lblNombre.setText("Nombre Archivo: " + nombre);
+
+        //ubicacion del archivo
+        String path = ubicacion.getAbsolutePath().trim();
+        lblRuta.setText("Ruta: " + path);
+
+        //tamaño del archivo
+        long tam = ubicacion.length();
+        long kb = tam / 1024;
+        lblTam.setText("Tamaño archivo: " + kb + " kb");
+
+        //fehca de modificacion del archivo
+        long fechaMod = ubicacion.lastModified();
+        Date fecha = new Date(fechaMod);
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaText = formatoFecha.format(fecha);
+        lblFecha.setText("Fecha Modificacion: " + fechaText);
+
+        ImageIcon imgs;
+        imgs = new ImageIcon(RutaImagen);
+        lblImagen.setIcon(imgs);
+
+       /* Desktop d = Desktop.getDesktop();
         try {
             d.open(new File(RutaImagen));
         } catch (IOException ex) {
             System.err.println("Error " + ex.toString());
-        }
+        }*/
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -308,9 +306,9 @@ public class LectorQR extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlbRuta1;
-    private javax.swing.JPanel jpnCodigo;
     private javax.swing.JLabel lblDatos;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRuta;
     private javax.swing.JLabel lblTam;
