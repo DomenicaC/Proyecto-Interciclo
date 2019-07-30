@@ -11,6 +11,7 @@ import ec.edu.ups.persona.BuscarPersona;
 import ec.edu.ups.persona.CrearPersona;
 import ec.edu.ups.persona.ListarPersona;
 import ec.edu.ups.persona.ModificarPersona;
+import ec.edu.ups.vehiculo.BuscarAuto;
 import ec.edu.ups.vehiculo.CrearAuto;
 import javax.swing.JOptionPane;
 
@@ -30,6 +31,7 @@ public class Menu extends javax.swing.JFrame {
     private ModificarPersona modificarpersona;
     private ListarPersona eliminarpersona;
     private CrearAuto crearauto;
+    private BuscarAuto buscarauto;
 
     public Menu() {
         initComponents();
@@ -131,7 +133,12 @@ public class Menu extends javax.swing.JFrame {
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
+        copyMenuItem.setText("Buscar");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
@@ -344,6 +351,23 @@ public class Menu extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_cutMenuItemActionPerformed
+
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = BuscarAuto.x;
+        try {
+            if (x == null) {
+                if (buscarauto == null || buscarauto.isVisible() == false) {
+                    buscarauto = new BuscarAuto();
+                    DesktopPane.add(buscarauto);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_copyMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
