@@ -228,6 +228,7 @@ public class Menu extends javax.swing.JFrame {
         helpMenu5.setMnemonic('h');
         helpMenu5.setText("Codigo QR");
 
+        itemGene.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         itemGene.setMnemonic('c');
         itemGene.setText("Generar Codigo QR");
         itemGene.addActionListener(new java.awt.event.ActionListener() {
@@ -237,6 +238,7 @@ public class Menu extends javax.swing.JFrame {
         });
         helpMenu5.add(itemGene);
 
+        itemLector.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         itemLector.setMnemonic('a');
         itemLector.setText("Lector de Codigo QR");
         itemLector.addActionListener(new java.awt.event.ActionListener() {
