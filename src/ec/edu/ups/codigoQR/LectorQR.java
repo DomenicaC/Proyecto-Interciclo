@@ -203,7 +203,6 @@ public class LectorQR extends javax.swing.JInternalFrame {
             System.out.println("Archivo Encontrado");
             JOptionPane.showMessageDialog(this, "Archivo Encontrado");
             try {
-
                 //decodificar imagen
                 imagen = ImageIO.read(ubicacion);
                 //formateo para interpretacion
@@ -211,7 +210,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 //crear mapa de bits
                 BinaryBitmap mapabits = new BinaryBitmap(new HybridBinarizer(fuente));
 
-                //obtener datos del codigo
+                //obtener datos del codigo qr
                 Result resultado = lector.decode(mapabits);
                 System.out.println("Contenido mapa " + resultado.getText());
                 lblDatos.setText("Datos que contiene el codigo: " + resultado.getText());
@@ -223,7 +222,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
             } catch (FormatException ex) {
                 System.err.println("Error de formato " + ex.toString());
             } catch (IOException ex) {
-                System.err.println("error " + ex.toString());
+                System.err.println("Error " + ex.toString());
             }
             
         }

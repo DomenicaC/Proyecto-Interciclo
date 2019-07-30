@@ -27,10 +27,12 @@ public class Menu extends javax.swing.JFrame {
      */
     private GenerarQR genQR;
     private LectorQR lecQR;
+
     private CrearPersona crearpersona;
     private BuscarPersona buscarpersona;
     private ModificarPersona modificarpersona;
     private ListarPersona eliminarpersona;
+
     private CrearAuto crearauto;
     private BuscarAuto buscarauto;
     private ModificarAuto modificarauto;
@@ -237,6 +239,11 @@ public class Menu extends javax.swing.JFrame {
 
         itemLector.setMnemonic('a');
         itemLector.setText("Lector de Codigo QR");
+        itemLector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemLectorActionPerformed(evt);
+            }
+        });
         helpMenu5.add(itemLector);
 
         menuBar.add(helpMenu5);
@@ -293,7 +300,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = CrearPersona.x;
+        String x = CrearPersona.x;
         try {
             if (x == null) {
                 if (crearpersona == null || crearpersona.isVisible() == false) {
@@ -310,7 +317,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = BuscarPersona.x;
+        String x = BuscarPersona.x;
         try {
             if (x == null) {
                 if (buscarpersona == null || buscarpersona.isVisible() == false) {
@@ -327,7 +334,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = ModificarPersona.x;
+        String x = ModificarPersona.x;
         try {
             if (x == null) {
                 if (modificarpersona == null || modificarpersona.isVisible() == false) {
@@ -344,7 +351,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = CrearAuto.x;
+        String x = CrearAuto.x;
         try {
             if (x == null) {
                 if (crearauto == null || crearauto.isVisible() == false) {
@@ -361,7 +368,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = BuscarAuto.x;
+        String x = BuscarAuto.x;
         try {
             if (x == null) {
                 if (buscarauto == null || buscarauto.isVisible() == false) {
@@ -392,6 +399,24 @@ public class Menu extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_pasteMenuItemActionPerformed
+
+    private void itemLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLectorActionPerformed
+
+        String x = LectorQR.x;
+        try {
+            if (x == null) {
+                if (lecQR == null || lecQR.isVisible() == false) {
+                    lecQR = new LectorQR();
+                    DesktopPane.add(lecQR);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_itemLectorActionPerformed
 
     /**
      * @param args the command line arguments
