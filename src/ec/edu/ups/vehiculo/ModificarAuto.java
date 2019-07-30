@@ -34,7 +34,7 @@ import javax.swing.JOptionPane;
         x = "x";
         int a = Menu.desktopPane.getWidth() - this.getWidth();
         int b = Menu.desktopPane.getHeight() - this.getHeight();
-
+        
         setLocation(a / 2, b / 2);
         setVisible(true);
     }
@@ -194,19 +194,21 @@ import javax.swing.JOptionPane;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-         auto = new Auto();
+        ControladorAuto cp = new ControladorAuto();
+        Auto d = new Auto();
         auto.setPlaca(placa);
         auto.setModelo(txtmodelo.getText());
         auto.setColor(txtaño.getText());
         auto.setAño(Integer.parseInt(txtaño.getText()));
         auto.setPerCedula(txtpersona.getText());
-        controladorauto.updateAuto(auto);
-        JOptionPane.showMessageDialog(this, "Auto modificado", "Modificar Auto", JOptionPane.OK_OPTION);
+        cp.updateAuto(auto);
+        JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
         txtplaca.setText("");
         txtmodelo.setText("");
         txtcolor.setText("");
         txtaño.setText("");
         txtpersona.setText("");
+        ;
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

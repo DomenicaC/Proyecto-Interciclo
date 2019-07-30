@@ -13,6 +13,7 @@ import ec.edu.ups.persona.ListarPersona;
 import ec.edu.ups.persona.ModificarPersona;
 import ec.edu.ups.vehiculo.BuscarAuto;
 import ec.edu.ups.vehiculo.CrearAuto;
+import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
 import javax.swing.JOptionPane;
 
@@ -36,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
     private CrearAuto crearauto;
     private BuscarAuto buscarauto;
     private ModificarAuto modificarauto;
+    private ListarAuto listarauto;
 
     public Menu() {
         initComponents();
@@ -155,7 +157,12 @@ public class Menu extends javax.swing.JFrame {
         editMenu.add(pasteMenuItem);
 
         deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
+        deleteMenuItem.setText("Listar");
+        deleteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
@@ -402,6 +409,24 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_pasteMenuItemActionPerformed
+
+    private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = ListarAuto.x;
+        try {
+            if (x == null) {
+                if (listarauto == null || listarauto.isVisible() == false) {
+                    listarauto = new ListarAuto();
+                    desktopPane.add(listarauto);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_deleteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
