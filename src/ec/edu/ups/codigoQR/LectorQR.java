@@ -19,11 +19,16 @@ import com.google.zxing.common.HybridBinarizer;
 import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,7 +65,6 @@ public class LectorQR extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         btnBuscar = new javax.swing.JButton();
-        lblRuta = new javax.swing.JLabel();
         lblTam = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -69,7 +73,8 @@ public class LectorQR extends javax.swing.JInternalFrame {
         jlbRuta1 = new javax.swing.JLabel();
         txtUbicacion = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
-        lblImagen = new javax.swing.JLabel();
+        btnBuscarO = new javax.swing.JButton();
+        lblImagen = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -99,9 +104,6 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
-
-        lblRuta.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblRuta.setText("Ruta:");
 
         lblTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblTam.setText("Tamaño archivo:");
@@ -136,58 +138,64 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblFecha.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblFecha.setText("Fecha Modificacion:");
 
-        lblImagen.setText("imagen");
+        btnBuscarO.setText("B");
+        btnBuscarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarOActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscar)
-                    .addComponent(btnCancelar))
-                .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(lblNombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblFecha)
-                .addGap(65, 65, 65))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jlbRuta1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(198, 198, 198))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblRuta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(lblDatos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTam)
                 .addGap(134, 134, 134))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jlbRuta1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarO, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(lblNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblFecha)))
+                .addGap(65, 65, 65))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscar)
+                            .addComponent(btnCancelar))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(198, 198, 198))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlbRuta1)
-                    .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jlbRuta1)
+                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarO, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(lblFecha))
@@ -204,9 +212,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(lblRuta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -255,7 +261,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         //ubicacion del archivo
         String path = ubicacion.getAbsolutePath().trim();
-        lblRuta.setText("Ruta: " + path);
+//        lblRuta.setText("Ruta: " + path);
 
         //tamaño del archivo
         long tam = ubicacion.length();
@@ -273,12 +279,12 @@ public class LectorQR extends javax.swing.JInternalFrame {
         imgs = new ImageIcon(RutaImagen);
         lblImagen.setIcon(imgs);
 
-       /* Desktop d = Desktop.getDesktop();
-        try {
-            d.open(new File(RutaImagen));
-        } catch (IOException ex) {
-            System.err.println("Error " + ex.toString());
-        }*/
+        /* Desktop d = Desktop.getDesktop();
+         try {
+         d.open(new File(RutaImagen));
+         } catch (IOException ex) {
+         System.err.println("Error " + ex.toString());
+         }*/
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -300,17 +306,47 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_formInternalFrameClosing
 
+    private void btnBuscarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarOActionPerformed
+
+        // muestra el cuadro de diálogo de archivos, para que el usuario pueda elegir el archivo a abrir
+        JFileChooser selectorArchivos = new JFileChooser();
+        selectorArchivos.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+        // indica cual fue la accion de usuario sobre el jfilechooser
+        int resultado = selectorArchivos.showOpenDialog(this);
+
+        File archivo = selectorArchivos.getSelectedFile(); // obtiene el archivo seleccionado
+
+        // muestra error si es inválido
+        if ((archivo == null) || (archivo.getName().equals(""))) {
+            JOptionPane.showMessageDialog(this, "Nombre de archivo inválido", "Nombre de archivo inválido", JOptionPane.ERROR_MESSAGE);
+        } // fin de if
+
+        txtUbicacion.setText(archivo.getAbsolutePath());
+        /*Scanner scn;
+         try {
+         scn = new Scanner(archivo);
+         while (scn.hasNext()) {
+         jtaContenido.insert(scn.nextLine() + "\n", jtaContenido.getText().length());
+         }
+         } catch (FileNotFoundException ex) {
+         Logger.getLogger(LectorQR.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         */
+
+    }//GEN-LAST:event_btnBuscarOActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarO;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlbRuta1;
     private javax.swing.JLabel lblDatos;
     private javax.swing.JLabel lblFecha;
-    private javax.swing.JLabel lblImagen;
+    private javax.swing.JButton lblImagen;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblRuta;
     private javax.swing.JLabel lblTam;
     private javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
