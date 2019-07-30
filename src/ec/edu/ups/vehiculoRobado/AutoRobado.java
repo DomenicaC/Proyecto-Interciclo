@@ -13,33 +13,39 @@ import java.sql.Date;
  */
 public class AutoRobado {
 
-    private int placa;
+    private String placa;
+     private String modelo;
     private String color;
     private int año;
-    private String modelo;
     private Date fechaRobo;
-    private int perCedula;
+    private String perCedula;
 
     public AutoRobado() {
     }
 
-    public AutoRobado(int placa, String color, int año, String modelo, Date fechaRobo, int perCedula) {
-
+    public AutoRobado(String placa, String modelo, String color, int año, Date fechaRobo, String perCedula) {
         this.placa = placa;
+        this.modelo = modelo;
         this.color = color;
         this.año = año;
-        this.modelo = modelo;
         this.fechaRobo = fechaRobo;
         this.perCedula = perCedula;
-
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int placa) {
+    public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getColor() {
@@ -58,14 +64,6 @@ public class AutoRobado {
         this.año = año;
     }
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public Date getFechaRobo() {
         return fechaRobo;
     }
@@ -74,17 +72,22 @@ public class AutoRobado {
         this.fechaRobo = fechaRobo;
     }
 
-    public int getPerCedula() {
+    public String getPerCedula() {
         return perCedula;
     }
 
-    public void setPerCedula(int perCedula) {
+    public void setPerCedula(String perCedula) {
         this.perCedula = perCedula;
     }
 
     @Override
     public String toString() {
-        return "AutoRobado{" + " placa=" + placa + ", color=" + color + ", a\u00f1o=" + año + ", modelo=" + modelo + ", fechaRobo=" + fechaRobo + ", perCedula=" + perCedula + " " + '}';
+        return "AutoRobado{" + "placa=" + placa + ", modelo=" + modelo + ", color=" + color + ", a\u00f1o=" + año + ", fechaRobo=" + fechaRobo + ", perCedula=" + perCedula + '}';
     }
+    
+   
+    
+    
+    
 
 }

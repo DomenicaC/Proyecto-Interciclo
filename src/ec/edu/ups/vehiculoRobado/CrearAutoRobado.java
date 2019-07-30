@@ -10,28 +10,31 @@ import ec.edu.ups.controlador.ControladorAuto;
 import ec.edu.ups.controlador.ControladorPersona;
 import static ec.edu.ups.persona.CrearPersona.x;
 import ec.edu.ups.principal.Menu;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author erics
  */
-public class CrearAuto extends javax.swing.JInternalFrame {
+public class CrearAutoRobado extends javax.swing.JInternalFrame {
 
-    private ControladorAuto controladorauto;
+    private ControladorAutoROBADO controladorautorobado;
     public static String x;
-    
+     private SimpleDateFormat formato;
     /**
      * Creates new form Crear
      */
-    public CrearAuto() {
+    public CrearAutoRobado() {
         initComponents();
-        this.controladorauto = new ControladorAuto();
+        this.controladorautorobado = new ControladorAutoROBADO();
         x = "x";
         int a = Menu.desktopPane.getWidth() - this.getWidth();
         int b = Menu.desktopPane.getHeight() - this.getHeight();
-
+        formato = new SimpleDateFormat("yyyy-MM-dd");
         setLocation(a / 2, b / 2);
         setVisible(true);
        // txtCodigo.setText(String.valueOf(controladorDireccion.maxcodeigo() + 1));
@@ -60,7 +63,7 @@ public class CrearAuto extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         txtmodelo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtaño1 = new javax.swing.JTextField();
+        txtfecha = new javax.swing.JTextField();
 
         jButton1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         jButton1.setText("Crear");
@@ -143,7 +146,7 @@ public class CrearAuto extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtaño1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -174,7 +177,7 @@ public class CrearAuto extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtaño1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -191,22 +194,28 @@ public class CrearAuto extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Auto d = new Auto();
+        AutoRobado d = new AutoRobado();
         ControladorPersona cp = new ControladorPersona();
         if (cp.BuscaarPersona(txtpersona.getText()).getCedula() != null) {
+            try{
             d.setPlaca(txtplaca.getText());
             d.setModelo(txtmodelo.getText());
             d.setColor(txtcolor.getText());
             d.setAño(Integer.parseInt(txtaño.getText()));
+            d.setFechaRobo((Date) formato.parse(txtfecha.getText()));
             d.setPerCedula(txtpersona.getText());
-            controladorauto.create(d);
+            controladorautorobado.create(d);
             JOptionPane.showMessageDialog(this, "Auto Creado", "Crear Auto", JOptionPane.OK_OPTION);
-            //  txtCodigo.setText(String.valueOf(controladorauto.maxcodeigo() + 1));
             txtplaca.setText("");
             txtmodelo.setText("");
             txtcolor.setText("");
             txtaño.setText("");
             txtpersona.setText("");
+                
+            } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, "Fecha incorrecta. Ejm.(AAAA-MM-DD)", "Error fecha", JOptionPane.OK_OPTION);
+            
+        }    
         }else{
             JOptionPane.showMessageDialog(this, "No existe la persona esa cedula", "Crear Auto", JOptionPane.OK_OPTION);
         }
@@ -235,8 +244,8 @@ public class CrearAuto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtaño;
-    private javax.swing.JTextField txtaño1;
     private javax.swing.JTextField txtcolor;
+    private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtmodelo;
     private javax.swing.JTextField txtpersona;
     private javax.swing.JTextField txtplaca;
