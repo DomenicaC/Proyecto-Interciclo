@@ -246,6 +246,11 @@ public class Menu extends javax.swing.JFrame {
 
         itemLector.setMnemonic('a');
         itemLector.setText("Lector de Codigo QR");
+        itemLector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemLectorActionPerformed(evt);
+            }
+        });
         helpMenu5.add(itemLector);
 
         menuBar.add(helpMenu5);
@@ -427,6 +432,24 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_deleteMenuItemActionPerformed
+
+    private void itemLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLectorActionPerformed
+        
+        String x = LectorQR.x;
+        try {
+            if (x == null) {
+                if (lecQR == null || lecQR.isVisible() == false) {
+                    lecQR = new LectorQR();
+                    desktopPane.add(lecQR);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_itemLectorActionPerformed
 
     /**
      * @param args the command line arguments
