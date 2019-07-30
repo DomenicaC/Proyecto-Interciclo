@@ -5,6 +5,24 @@
  */
 package ec.edu.ups.codigoQR;
 
+import ec.edu.ups.principal.Menu;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
+import java.awt.Desktop;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Domenica Cañizares
@@ -14,8 +32,19 @@ public class LectorQR extends javax.swing.JInternalFrame {
     /**
      * Creates new form LectorQR
      */
+    public static String x;
+    
     public LectorQR() {
         initComponents();
+        
+        x = "x";
+        
+        int a = Menu.DesktopPane.getWidth() - this.getWidth();
+        int b = Menu.DesktopPane.getHeight() - this.getHeight();
+        
+        setLocation(a / 2, b / 2);
+        setVisible(true);
+        
     }
 
     /**
@@ -27,21 +56,210 @@ public class LectorQR extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnBuscar = new javax.swing.JButton();
+        lblRuta = new javax.swing.JLabel();
+        jpnCodigo = new javax.swing.JPanel();
+        lblTam = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JButton();
+        lblDatos = new javax.swing.JLabel();
+        jlbRuta1 = new javax.swing.JLabel();
+        txtUbicacion = new javax.swing.JTextField();
+
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        lblRuta.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblRuta.setText("Ruta:");
+
+        jpnCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo QR"));
+
+        javax.swing.GroupLayout jpnCodigoLayout = new javax.swing.GroupLayout(jpnCodigo);
+        jpnCodigo.setLayout(jpnCodigoLayout);
+        jpnCodigoLayout.setHorizontalGroup(
+            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 341, Short.MAX_VALUE)
+        );
+        jpnCodigoLayout.setVerticalGroup(
+            jpnCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 254, Short.MAX_VALUE)
+        );
+
+        lblTam.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblTam.setText("Tamaño:");
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 3, 36)); // NOI18N
+        jLabel1.setText("Lector de Codigo QR");
+
+        lblNombre.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblNombre.setText("Nombre Archivo:");
+
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        lblDatos.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblDatos.setText("Datos que contiene el codigo:");
+
+        jlbRuta1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        jlbRuta1.setText("Ubicacion:");
+
+        txtUbicacion.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        txtUbicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUbicacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(202, 202, 202))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlbRuta1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(97, 97, 97))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDatos)
+                                    .addComponent(lblRuta)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNombre)
+                                        .addGap(202, 202, 202)
+                                        .addComponent(lblTam)))
+                                .addGap(105, 127, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscar)
+                            .addComponent(btnCancelar))
+                        .addGap(47, 47, 47))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbRuta1)
+                    .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(lblTam))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar)
+                        .addGap(214, 214, 214))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblDatos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jpnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(lblRuta)
+                        .addGap(24, 24, 24))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        String RutaImagen = txtUbicacion.getText();
+        Reader lector = new MultiFormatReader();
+        File ubicacion = new File(RutaImagen);
+        System.out.println("Ubicacion " + ubicacion);
+        BufferedImage imagen;
+        
+        if (ubicacion.exists()) {
+            
+            System.out.println("Archivo Encontrado");
+            JOptionPane.showMessageDialog(this, "Archivo Encontrado");
+            try {
+
+                //decodificar imagen
+                imagen = ImageIO.read(ubicacion);
+                //formateo para interpretacion
+                LuminanceSource fuente = new BufferedImageLuminanceSource(imagen);
+                //crear mapa de bits
+                BinaryBitmap mapabits = new BinaryBitmap(new HybridBinarizer(fuente));
+
+                //obtener datos del codigo
+                Result resultado = lector.decode(mapabits);
+                System.out.println("Contenido mapa " + resultado.getText());
+                lblDatos.setText("Datos que contiene el codigo: " + resultado.getText());
+                
+            } catch (NotFoundException ex) {
+                System.err.println("Archivo no existe " + ex.toString());
+            } catch (ChecksumException ex) {
+                System.err.println("Error " + ex.toString());
+            } catch (FormatException ex) {
+                System.err.println("Error de formato " + ex.toString());
+            } catch (IOException ex) {
+                System.err.println("error " + ex.toString());
+            }
+            
+        }
+        
+        Desktop d = Desktop.getDesktop();
+        try {
+            d.open(new File(RutaImagen));
+        } catch (IOException ex) {
+            System.err.println("Error " + ex.toString());
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        
+        this.setVisible(false);
+        this.dispose();
+        x = null;
+
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUbicacionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlbRuta1;
+    private javax.swing.JPanel jpnCodigo;
+    private javax.swing.JLabel lblDatos;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRuta;
+    private javax.swing.JLabel lblTam;
+    private javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }
