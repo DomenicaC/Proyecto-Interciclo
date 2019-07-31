@@ -77,6 +77,11 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
 
         jButton2.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
         jButton2.setText("Cerrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel6.setText("Placa:");
@@ -240,6 +245,13 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
         txtpersona.setText("");
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         this.setVisible(false);
+        this.dispose();
+        x = null;
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

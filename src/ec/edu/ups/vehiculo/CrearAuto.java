@@ -226,9 +226,9 @@ public class CrearAuto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtplacaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-         x = null;
+        this.setVisible(false);
+        this.dispose();
+        x = null;
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

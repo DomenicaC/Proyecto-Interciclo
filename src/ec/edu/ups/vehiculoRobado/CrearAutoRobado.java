@@ -258,8 +258,9 @@ public class CrearAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        dispose();
-        x=null;
+        this.setVisible(false);
+        this.dispose();
+        x = null;
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

@@ -122,8 +122,9 @@ public class ListarPersona extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+       this.setVisible(false);
         this.dispose();
-        
+        x = null;
     }//GEN-LAST:event_btnCerrarActionPerformed
 
 
