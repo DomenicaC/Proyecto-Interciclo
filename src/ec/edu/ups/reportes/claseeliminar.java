@@ -9,6 +9,6 @@ package ec.edu.ups.reportes;
  *
  * @author Domenica Cañizares
  */
-public class eliminarCalse6 {
+public class claseeliminar {
     
 }
