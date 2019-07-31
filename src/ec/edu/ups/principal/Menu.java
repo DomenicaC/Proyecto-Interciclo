@@ -16,6 +16,7 @@ import ec.edu.ups.vehiculo.CrearAuto;
 import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
+import ec.edu.ups.vista.parqueo.PuestoParqueo;
 import javax.swing.JOptionPane;
 import java.awt.Desktop;
 import java.net.URI;
@@ -42,14 +43,16 @@ public class Menu extends javax.swing.JFrame {
     private BuscarAuto buscarauto;
     private ModificarAuto modificarauto;
     private ListarAuto listarauto;
-    
+
     private CrearAutoRobado autorobado;
 
+    private PuestoParqueo puestoP;
+
     public Menu() {
-        
+
         initComponents();
-        
-        this.setTitle("PARKING PARKIANDO");        
+
+        this.setTitle("PARKING PARKIANDO");
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(("src/ec/edu/ups/principal/estacion.png")).getImage());
         desktopPane1.setBorder(new Fondo());
@@ -85,17 +88,7 @@ public class Menu extends javax.swing.JFrame {
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
         helpMenu1 = new javax.swing.JMenu();
-        contentMenuItem1 = new javax.swing.JMenuItem();
-        aboutMenuItem1 = new javax.swing.JMenuItem();
-        helpMenu2 = new javax.swing.JMenu();
-        contentMenuItem2 = new javax.swing.JMenuItem();
-        aboutMenuItem2 = new javax.swing.JMenuItem();
-        helpMenu3 = new javax.swing.JMenu();
-        contentMenuItem3 = new javax.swing.JMenuItem();
-        aboutMenuItem3 = new javax.swing.JMenuItem();
-        helpMenu4 = new javax.swing.JMenu();
-        contentMenuItem4 = new javax.swing.JMenuItem();
-        aboutMenuItem4 = new javax.swing.JMenuItem();
+        itemPuesto = new javax.swing.JMenuItem();
         helpMenu5 = new javax.swing.JMenu();
         itemGene = new javax.swing.JMenuItem();
         itemLector = new javax.swing.JMenuItem();
@@ -241,52 +234,14 @@ public class Menu extends javax.swing.JFrame {
         helpMenu1.setMnemonic('h');
         helpMenu1.setText("Parqueo");
 
-        contentMenuItem1.setMnemonic('c');
-        contentMenuItem1.setText("Contents");
-        helpMenu1.add(contentMenuItem1);
-
-        aboutMenuItem1.setMnemonic('a');
-        aboutMenuItem1.setText("About");
-        helpMenu1.add(aboutMenuItem1);
-
-        helpMenu2.setMnemonic('h');
-        helpMenu2.setText("Parqueo");
-
-        contentMenuItem2.setMnemonic('c');
-        contentMenuItem2.setText("Contents");
-        helpMenu2.add(contentMenuItem2);
-
-        aboutMenuItem2.setMnemonic('a');
-        aboutMenuItem2.setText("About");
-        helpMenu2.add(aboutMenuItem2);
-
-        helpMenu1.add(helpMenu2);
-
-        helpMenu3.setMnemonic('h');
-        helpMenu3.setText("Parqueo");
-
-        contentMenuItem3.setMnemonic('c');
-        contentMenuItem3.setText("Contents");
-        helpMenu3.add(contentMenuItem3);
-
-        aboutMenuItem3.setMnemonic('a');
-        aboutMenuItem3.setText("About");
-        helpMenu3.add(aboutMenuItem3);
-
-        helpMenu4.setMnemonic('h');
-        helpMenu4.setText("Parqueo");
-
-        contentMenuItem4.setMnemonic('c');
-        contentMenuItem4.setText("Contents");
-        helpMenu4.add(contentMenuItem4);
-
-        aboutMenuItem4.setMnemonic('a');
-        aboutMenuItem4.setText("About");
-        helpMenu4.add(aboutMenuItem4);
-
-        helpMenu3.add(helpMenu4);
-
-        helpMenu1.add(helpMenu3);
+        itemPuesto.setMnemonic('c');
+        itemPuesto.setText("Puesto de Parqueo");
+        itemPuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemPuestoActionPerformed(evt);
+            }
+        });
+        helpMenu1.add(itemPuesto);
 
         menuBar.add(helpMenu1);
 
@@ -475,7 +430,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = ListarAuto.x;
+        String x = ListarAuto.x;
         try {
             if (x == null) {
                 if (listarauto == null || listarauto.isVisible() == false) {
@@ -492,7 +447,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteMenuItemActionPerformed
 
     private void itemLectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLectorActionPerformed
-        
+
         String x = LectorQR.x;
         try {
             if (x == null) {
@@ -506,7 +461,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_itemLectorActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
@@ -532,13 +487,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             Desktop.getDesktop().browse(new URI("https://github.com/DomenicaC/Proyecto-Interciclo"));
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error el URL no existe");
-        } try{
+        }
+        try {
             Desktop.getDesktop().browse(new URI("https://github.com/DomenicaC/Proyecto-Interciclo"));
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error el URL no existe");
         }
 
@@ -546,8 +502,26 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void itemPuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemPuestoActionPerformed
+
+        String x = PuestoParqueo.x;
+        try {
+            if (x == null) {
+                if (puestoP == null || puestoP.isVisible() == false) {
+                    puestoP = new PuestoParqueo();
+                    desktopPane1.add(puestoP);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_itemPuestoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -586,15 +560,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem aboutMenuItem1;
-    private javax.swing.JMenuItem aboutMenuItem2;
-    private javax.swing.JMenuItem aboutMenuItem3;
-    private javax.swing.JMenuItem aboutMenuItem4;
     private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem contentMenuItem1;
-    private javax.swing.JMenuItem contentMenuItem2;
-    private javax.swing.JMenuItem contentMenuItem3;
-    private javax.swing.JMenuItem contentMenuItem4;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
@@ -604,12 +570,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu helpMenu1;
-    private javax.swing.JMenu helpMenu2;
-    private javax.swing.JMenu helpMenu3;
-    private javax.swing.JMenu helpMenu4;
     private javax.swing.JMenu helpMenu5;
     private javax.swing.JMenuItem itemGene;
     private javax.swing.JMenuItem itemLector;
+    private javax.swing.JMenuItem itemPuesto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

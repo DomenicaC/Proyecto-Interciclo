@@ -124,78 +124,15 @@
             <Property name="text" type="java.lang.String" value="Parqueo"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="contentMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="itemPuesto">
               <Properties>
                 <Property name="mnemonic" type="int" value="99"/>
-                <Property name="text" type="java.lang.String" value="Contents"/>
+                <Property name="text" type="java.lang.String" value="Puesto de Parqueo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemPuestoActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem1">
-              <Properties>
-                <Property name="mnemonic" type="int" value="97"/>
-                <Property name="text" type="java.lang.String" value="About"/>
-              </Properties>
-            </MenuItem>
-            <Menu class="javax.swing.JMenu" name="helpMenu2">
-              <Properties>
-                <Property name="mnemonic" type="int" value="104"/>
-                <Property name="text" type="java.lang.String" value="Parqueo"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="contentMenuItem2">
-                  <Properties>
-                    <Property name="mnemonic" type="int" value="99"/>
-                    <Property name="text" type="java.lang.String" value="Contents"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem2">
-                  <Properties>
-                    <Property name="mnemonic" type="int" value="97"/>
-                    <Property name="text" type="java.lang.String" value="About"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="helpMenu3">
-              <Properties>
-                <Property name="mnemonic" type="int" value="104"/>
-                <Property name="text" type="java.lang.String" value="Parqueo"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="contentMenuItem3">
-                  <Properties>
-                    <Property name="mnemonic" type="int" value="99"/>
-                    <Property name="text" type="java.lang.String" value="Contents"/>
-                  </Properties>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem3">
-                  <Properties>
-                    <Property name="mnemonic" type="int" value="97"/>
-                    <Property name="text" type="java.lang.String" value="About"/>
-                  </Properties>
-                </MenuItem>
-                <Menu class="javax.swing.JMenu" name="helpMenu4">
-                  <Properties>
-                    <Property name="mnemonic" type="int" value="104"/>
-                    <Property name="text" type="java.lang.String" value="Parqueo"/>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="contentMenuItem4">
-                      <Properties>
-                        <Property name="mnemonic" type="int" value="99"/>
-                        <Property name="text" type="java.lang.String" value="Contents"/>
-                      </Properties>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem4">
-                      <Properties>
-                        <Property name="mnemonic" type="int" value="97"/>
-                        <Property name="text" type="java.lang.String" value="About"/>
-                      </Properties>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-              </SubComponents>
-            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="helpMenu5">
