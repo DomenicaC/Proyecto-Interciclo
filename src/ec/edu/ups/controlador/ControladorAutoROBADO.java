@@ -85,7 +85,7 @@ public class ControladorAutoROBADO {
         return auto;
     }
 
-    public void updateAuto(AutoRobado autor) {
+    public void updateAutoR(AutoRobado autor) {
 
         String sql = "UPDATE \"AUTOROBADO \" SET \"AUT_MODELO\" = '"
                 + autor.getModelo() + "', \"AUT_COLOR\" = '"

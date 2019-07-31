@@ -73,8 +73,11 @@ public class ControladorPersona {
 
     public void modificar(Persona p) throws SQLException {
         String sql = "UPDATE\"PERSONA\" SET \"PER_NOMBRE\" = '" 
-                + p.getNombre() + "',\"PER_APELLIDO\" = '" + p.getApellido() + "',\"PER_EDAD\" = " 
-                + p.getEdad() + ",\"PER_DIRECCION\" = '" + p.getDireccion() +"';";
+                + p.getNombre() + "',\"PER_APELLIDO\" = '" 
+                + p.getApellido() + "',\"PER_EDAD\" = " 
+                + p.getEdad() + ",\"PER_DIRECCION\" = '" 
+                + p.getDireccion() +"' WHERE \"PER_CEDULA\" = '" + p.getCedula()+ "';";
+        
         System.out.println(sql);
         MiBaseDatos.conectar();
         try {

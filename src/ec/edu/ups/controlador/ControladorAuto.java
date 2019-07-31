@@ -6,6 +6,7 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.vehiculo.Auto;
+import ec.edu.ups.vehiculoRobado.AutoRobado;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -79,11 +80,11 @@ public class ControladorAuto {
 
     public void updateAuto(Auto auto) {
 
-        String sql = "UPDATE \"AUTO \" SET \"AUT_MODELO\" = '"
-                + auto.getModelo() + "', \"AUT_COLOR\" = '"
-                + auto.getColor() + "', \"AUT_AÑO\" = "
-                + auto.getAño() + ", \"PER_CEDULA \" = '"
-                + auto.getPerCedula() + "' WHERE \"AUT_PLACA\" ='" + auto.getPlaca() + "';";
+        String sql = "UPDATE\"AUTO\" SET \"AUT_MODELO\" = '"
+                + auto.getModelo() + "',\"AUT_COLOR\" = '"
+                + auto.getColor() + "',\"AUT_AÑO\" = "
+                + auto.getAño() + ",\"PER_CEDULA \" = '"
+                + auto.getPerCedula() + "' WHERE \"AUT_PLACA\" = '" + auto.getPlaca() + "';";
         System.out.println("Base de datos " + sql);
 
         MiBaseDatos.conectar();

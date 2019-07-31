@@ -20,21 +20,23 @@ import javax.swing.JOptionPane;
  *
  * @author erics
  */
-    public class ModificarAuto extends javax.swing.JInternalFrame {
+public class ModificarAuto extends javax.swing.JInternalFrame {
+
     private Auto auto;
-    private ControladorAuto controladorauto;
-     private String placa;
+    private ControladorAuto controladorauto = new ControladorAuto();
+    private String placa;
     public static String x;
+
     /**
      * Creates new form Modificar
      */
     public ModificarAuto() {
         initComponents();
-       // ontroladorPersona = new ControladorPersona();
+        // ontroladorPersona = new ControladorPersona();
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
-        
+
         setLocation(a / 2, b / 2);
         setVisible(true);
     }
@@ -204,37 +206,38 @@ import javax.swing.JOptionPane;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         ControladorAuto cp = new ControladorAuto();
+        ControladorAuto cp = new ControladorAuto();
         Auto p = new Auto();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {
             txtmodelo.setText(p.getModelo());
             txtcolor.setText(p.getColor());
             txtaño.setText(String.valueOf(p.getAño()));
-            txtpersona.setText(p.getPerCedula());    
-        }else{
+            txtpersona.setText(p.getPerCedula());
+        } else {
             JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        ControladorAuto cp = new ControladorAuto();
-        Auto d = new Auto();
+
+        auto = new Auto();
         auto.setPlaca(placa);
         auto.setModelo(txtmodelo.getText());
         auto.setColor(txtaño.getText());
         auto.setAño(Integer.parseInt(txtaño.getText()));
         auto.setPerCedula(txtpersona.getText());
-        cp.updateAuto(auto);
+
+        controladorauto.updateAuto(auto);
+
         JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
         txtplaca.setText("");
         txtmodelo.setText("");
         txtcolor.setText("");
         txtaño.setText("");
         txtpersona.setText("");
-        ;
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
