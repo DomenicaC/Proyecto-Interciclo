@@ -83,7 +83,7 @@ public class ControladorAuto {
         String sql = "UPDATE\"AUTO\" SET \"AUT_MODELO\" = '"
                 + auto.getModelo() + "',\"AUT_COLOR\" = '"
                 + auto.getColor() + "',\"AUT_AÑO\" = "
-                + auto.getAño() + ",\"PER_CEDULA \" = '"
+                + auto.getAño() + ",\"PER_CEDULA\" = '"
                 + auto.getPerCedula() + "' WHERE \"AUT_PLACA\" = '" + auto.getPlaca() + "';";
         System.out.println("Base de datos " + sql);
 
