@@ -112,7 +112,7 @@ public class ControladorAutoROBADO {
 
     public void deleteAuto(String auto) {
 
-        String sql = "DELETE FROM \"AUTOROBADO \"WHERE \"AUT_PLACA \"='" + auto + "';";
+        String sql = "DELETE FROM \"AUTOROBADO\" WHERE \"AUT_PLACA\" = '"+auto+"';";
         System.out.println("Base eliminada " + sql);
 
         MiBaseDatos.conectar();

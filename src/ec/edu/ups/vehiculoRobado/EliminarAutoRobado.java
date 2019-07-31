@@ -5,17 +5,37 @@
  */
 package ec.edu.ups.vehiculoRobado;
 
+import ec.edu.ups.controlador.ControladorAutoROBADO;
+import ec.edu.ups.principal.Menu;
+import static ec.edu.ups.vehiculoRobado.ModificarAutoRobado.x;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
 /**
  *
  * @author erics
  */
 public class EliminarAutoRobado extends javax.swing.JInternalFrame {
-
+     private AutoRobado autoR;
+    
+     private ControladorAutoROBADO controladorAutoR = new ControladorAutoROBADO();
+    private String placa;
+    public static String x;
+    private SimpleDateFormat formato;
     /**
      * Creates new form EliminarAutoRobado
      */
     public EliminarAutoRobado() {
         initComponents();
+        x = "x";
+        int a = Menu.desktopPane1.getWidth() - this.getWidth();
+        int b = Menu.desktopPane1.getHeight() - this.getHeight();
+
+        setLocation(a / 2, b / 2);
+        setVisible(true);
+         formato = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     /**
@@ -36,13 +56,13 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        txtaño4 = new javax.swing.JTextField();
-        txtcolor4 = new javax.swing.JTextField();
-        txtmodelo4 = new javax.swing.JTextField();
-        txtplaca4 = new javax.swing.JTextField();
+        txtaño = new javax.swing.JTextField();
+        txtcolor = new javax.swing.JTextField();
+        txtmodelo = new javax.swing.JTextField();
+        txtplaca = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         txtfecha = new javax.swing.JTextField();
-        txtpersona4 = new javax.swing.JTextField();
+        txtpersona = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -112,14 +132,14 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
         jLabel29.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel29.setText("Año:");
 
-        txtaño4.setEditable(false);
+        txtaño.setEditable(false);
 
-        txtcolor4.setEditable(false);
+        txtcolor.setEditable(false);
 
-        txtmodelo4.setEditable(false);
+        txtmodelo.setEditable(false);
 
         jLabel30.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel30.setText("Fecha:");
+        jLabel30.setText("Fecha de Robo:");
 
         txtfecha.setEditable(false);
         txtfecha.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -128,7 +148,7 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
             }
         });
 
-        txtpersona4.setEditable(false);
+        txtpersona.setEditable(false);
 
         jLabel31.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jLabel31.setText("Persona Cedula:");
@@ -167,31 +187,32 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
                         .addGap(41, 41, 41)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtpersona4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtaño4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtmodelo4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtplaca4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtplaca, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton17)))
+                                .addComponent(jButton17))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(15, 15, 15))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(98, 98, 98)
@@ -206,28 +227,28 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(txtplaca4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtplaca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(txtmodelo4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(txtcolor4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(txtaño4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtfecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(txtpersona4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -265,7 +286,7 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(137, Short.MAX_VALUE)
@@ -294,13 +315,40 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+         JPasswordField admin = new JPasswordField();
+      
+if(JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar",JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
+    
+}
+         controladorAutoR.deleteAuto(txtplaca.getText());
+        JOptionPane.showMessageDialog(this, "Persona eliminada","Eliminar Persona",JOptionPane.OK_OPTION);
+        txtplaca.setText("");
+        txtmodelo.setText("");
+        txtcolor.setText("");
+        txtaño.setText("");
+        txtfecha.setText("");
+        txtpersona.setText("");
+        
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+         ControladorAutoROBADO cp = new ControladorAutoROBADO();
+        AutoRobado p = new AutoRobado();
+        p = cp.BuscarAuto(txtplaca.getText());
+        if (p.getPlaca() != null) {
+            txtmodelo.setText(p.getModelo());
+            txtcolor.setText(p.getColor());
+            txtaño.setText(String.valueOf(p.getAño()));
+           txtfecha.setText(formato.format(p.getFechaRobo()));
+            txtpersona.setText(p.getPerCedula());
+            placa = txtplaca.getText();
+        } else {
+            JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
 
@@ -319,11 +367,11 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField txtaño4;
-    private javax.swing.JTextField txtcolor4;
+    private javax.swing.JTextField txtaño;
+    private javax.swing.JTextField txtcolor;
     private javax.swing.JTextField txtfecha;
-    private javax.swing.JTextField txtmodelo4;
-    private javax.swing.JTextField txtpersona4;
-    private javax.swing.JTextField txtplaca4;
+    private javax.swing.JTextField txtmodelo;
+    private javax.swing.JTextField txtpersona;
+    private javax.swing.JTextField txtplaca;
     // End of variables declaration//GEN-END:variables
 }

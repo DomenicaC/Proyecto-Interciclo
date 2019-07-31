@@ -17,6 +17,7 @@ import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
 
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
+import ec.edu.ups.vehiculoRobado.EliminarAutoRobado;
 import ec.edu.ups.vehiculoRobado.ListarAutoRobado;
 import ec.edu.ups.vehiculoRobado.ModificarAutoRobado;
 import ec.edu.ups.vista.parqueo.PuestoParqueo;
@@ -49,6 +50,7 @@ public class Menu extends javax.swing.JFrame {
 
     private CrearAutoRobado autorobado;
    private ModificarAutoRobado autorobado1;
+   private EliminarAutoRobado autorobado2;
     private ListarAutoRobado listarautorobado;
     
 
@@ -237,6 +239,11 @@ public class Menu extends javax.swing.JFrame {
         helpMenu.add(jMenuItem1);
 
         jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         helpMenu.add(jMenuItem2);
 
         jMenuItem3.setText("Listar");
@@ -574,6 +581,23 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        String x = EliminarAutoRobado.x;
+        try {
+            if (x == null) {
+                if (autorobado2 == null || autorobado2.isVisible() == false) {
+                    autorobado2 = new EliminarAutoRobado();
+                    desktopPane1.add(autorobado2);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
