@@ -65,6 +65,10 @@ public class ListarAutoRobado extends javax.swing.JInternalFrame {
         table = new javax.swing.JTable();
         btnCerrar = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
         jLabel1.setText("Listar Auto Robado");
 

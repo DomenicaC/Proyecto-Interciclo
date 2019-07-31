@@ -15,6 +15,8 @@ import ec.edu.ups.persona.Persona;
 import ec.edu.ups.principal.Menu;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,10 +29,11 @@ import javax.swing.JOptionPane;
 public class ModificarAutoRobado extends javax.swing.JInternalFrame {
 
     private AutoRobado autoR;
-    private ControladorAutoROBADO controladorAutoR;
+    
+     private ControladorAutoROBADO controladorAutoR = new ControladorAutoROBADO();
     private String placa;
     public static String x;
-
+    private SimpleDateFormat formato;
     /**
      * Creates new form Modificar
      */
@@ -43,6 +46,7 @@ public class ModificarAutoRobado extends javax.swing.JInternalFrame {
 
         setLocation(a / 2, b / 2);
         setVisible(true);
+         formato = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     /**
@@ -234,14 +238,16 @@ public class ModificarAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ControladorAuto cp = new ControladorAuto();
-        Auto p = new Auto();
+        ControladorAutoROBADO cp = new ControladorAutoROBADO();
+        AutoRobado p = new AutoRobado();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {
             txtmodelo.setText(p.getModelo());
             txtcolor.setText(p.getColor());
             txtaño.setText(String.valueOf(p.getAño()));
+           txtfecha.setText(formato.format(p.getFechaRobo()));
             txtpersona.setText(p.getPerCedula());
+            placa = txtplaca.getText();
         } else {
             JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
         }
@@ -262,18 +268,31 @@ public class ModificarAutoRobado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        try{
         autoR = new AutoRobado();
-
         autoR.setPlaca(placa);
         autoR.setModelo(txtmodelo.getText());
         autoR.setColor(txtcolor.getText());
         autoR.setAño(Integer.parseInt(txtaño.getText()));
-        autoR.setFechaRobo(Date.valueOf(txtfecha.getText()));
+        autoR.setFechaRobo(formato.parse(txtfecha.getText()));
         autoR.setPerCedula(txtpersona.getText());
 
         controladorAutoR.updateAutoR(autoR);
-        JOptionPane.showMessageDialog(this, "Persona modificada", "Modificar Persona", JOptionPane.OK_OPTION);
+
+        JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
+        txtplaca.setText("");
+        txtmodelo.setText("");
+        txtcolor.setText("");
+        txtaño.setText("");
+        txtfecha.setText("");
+        txtpersona.setText("");
+        }catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, "Fecha Incorrecta", "Error Fecha", JOptionPane.OK_OPTION);
+        }
+        
+    
+    
+        
 
 
     }//GEN-LAST:event_jButton3ActionPerformed

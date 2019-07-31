@@ -18,6 +18,7 @@ import ec.edu.ups.vehiculo.ModificarAuto;
 
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
 import ec.edu.ups.vehiculoRobado.ListarAutoRobado;
+import ec.edu.ups.vehiculoRobado.ModificarAutoRobado;
 import ec.edu.ups.vista.parqueo.PuestoParqueo;
 import javax.swing.JOptionPane;
 import java.awt.Desktop;
@@ -47,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
     private ListarAuto listarauto;
 
     private CrearAutoRobado autorobado;
-   
+   private ModificarAutoRobado autorobado1;
     private ListarAutoRobado listarautorobado;
     
 
@@ -228,6 +229,11 @@ public class Menu extends javax.swing.JFrame {
         helpMenu.add(contentMenuItem);
 
         jMenuItem1.setText("Modificar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         helpMenu.add(jMenuItem1);
 
         jMenuItem2.setText("Eliminar");
@@ -550,6 +556,24 @@ public class Menu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         String x = ModificarAutoRobado.x;
+        try {
+            if (x == null) {
+                if (autorobado1 == null || autorobado1.isVisible() == false) {
+                    autorobado1 = new ModificarAutoRobado();
+                    desktopPane1.add(autorobado1);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
