@@ -16,6 +16,8 @@ import com.google.zxing.Reader;
 import com.google.zxing.Result;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import ec.edu.ups.controlador.ControladorAuto;
+import ec.edu.ups.vehiculo.Auto;
 import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -43,8 +45,8 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         x = "x";
 
-        int a = Menu.desktopPane.getWidth() - this.getWidth();
-        int b = Menu.desktopPane.getHeight() - this.getHeight();
+        int a = Menu.desktopPane1.getWidth() - this.getWidth();
+        int b = Menu.desktopPane1.getHeight() - this.getHeight();
 
         setLocation(a / 2, b / 2);
         setVisible(true);
@@ -71,6 +73,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblFecha = new javax.swing.JLabel();
         btnBuscarO = new javax.swing.JButton();
         lblImagen = new javax.swing.JButton();
+        txtPlaca = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -148,6 +151,8 @@ public class LectorQR extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(170, 170, 170)
                 .addComponent(lblDatos)
+                .addGap(29, 29, 29)
+                .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTam)
                 .addGap(134, 134, 134))
@@ -198,12 +203,14 @@ public class LectorQR extends javax.swing.JInternalFrame {
                             .addComponent(lblNombre)
                             .addComponent(lblFecha))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDatos)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblDatos)
+                                .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblTam))
                         .addGap(18, 18, 18)
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(29, Short.MAX_VALUE))
+                        .addContainerGap(32, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBuscar)
@@ -238,7 +245,18 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 //obtener datos del codigo qr
                 Result resultado = lector.decode(mapabits);
                 System.out.println("Contenido mapa " + resultado.getText());
-                lblDatos.setText("Placa: " + resultado.getText());
+                txtPlaca.setText(resultado.getText());
+
+                ControladorAuto cp = new ControladorAuto();
+                Auto p = new Auto();
+                p = cp.BuscarAuto(txtPlaca.getText());
+                if (p.getPlaca() != null) {
+
+                    JOptionPane.showMessageDialog(this, "Auto robado encontrado");
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
+                }
 
             } catch (NotFoundException ex) {
                 System.err.println("Archivo no existe " + ex.toString());
@@ -336,6 +354,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
     private javax.swing.JButton lblImagen;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTam;
+    private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }

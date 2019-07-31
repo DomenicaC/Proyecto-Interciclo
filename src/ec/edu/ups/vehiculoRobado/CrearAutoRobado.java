@@ -33,8 +33,8 @@ public class CrearAutoRobado extends javax.swing.JInternalFrame {
         initComponents();
         controladorautorobado = new ControladorAutoROBADO();
         x = "x";
-        int a = Menu.desktopPane.getWidth() - this.getWidth();
-        int b = Menu.desktopPane.getHeight() - this.getHeight();
+        int a = Menu.desktopPane1.getWidth() - this.getWidth();
+        int b = Menu.desktopPane1.getHeight() - this.getHeight();
         formato = new SimpleDateFormat("yyyy-MM-dd");
         setLocation(a / 2, b / 2);
         setVisible(true);

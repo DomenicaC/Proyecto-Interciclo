@@ -28,8 +28,8 @@ public class CrearAuto extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorauto = new ControladorAuto();
         x = "x";
-        int a = Menu.desktopPane.getWidth() - this.getWidth();
-        int b = Menu.desktopPane.getHeight() - this.getHeight();
+        int a = Menu.desktopPane1.getWidth() - this.getWidth();
+        int b = Menu.desktopPane1.getHeight() - this.getHeight();
 
         setLocation(a / 2, b / 2);
         setVisible(true);

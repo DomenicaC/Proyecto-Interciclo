@@ -30,6 +30,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
               <Component id="lblDatos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="txtPlaca" min="-2" pref="141" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="lblTam" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
@@ -94,13 +96,16 @@
                           <Component id="lblFecha" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblDatos" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTam" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="lblDatos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblTam" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblImagen" min="-2" pref="500" max="-2" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -204,6 +209,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="lblImagen">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtPlaca">
     </Component>
   </SubComponents>
 </Form>

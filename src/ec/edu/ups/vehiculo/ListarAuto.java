@@ -29,8 +29,8 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         controladorauto = new ControladorAuto();
         llenarDatos();   
         x = "x";
-        int a = Menu.desktopPane.getWidth() - this.getWidth();
-        int b = Menu.desktopPane.getHeight() - this.getHeight();
+        int a = Menu.desktopPane1.getWidth() - this.getWidth();
+        int b = Menu.desktopPane1.getHeight() - this.getHeight();
 
         setLocation(a / 2, b / 2);
         setVisible(true);
