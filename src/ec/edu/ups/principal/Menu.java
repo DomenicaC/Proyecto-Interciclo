@@ -52,7 +52,7 @@ public class Menu extends javax.swing.JFrame {
         this.setExtendedState(Menu.MAXIMIZED_BOTH);
         this.setTitle("PARKING PARKIANDO");        
         setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(("src/ec/edu/ups/imagenes/estacion.png")).getImage());
+        setIconImage(new ImageIcon(("src/ec/edu/ups/principal/estacion.png")).getImage());
     }
 
     /**
@@ -193,6 +193,11 @@ public class Menu extends javax.swing.JFrame {
 
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("About");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(aboutMenuItem);
 
         menuBar.add(helpMenu);
@@ -282,7 +287,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
+            .addComponent(desktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
         );
 
         pack();
@@ -467,6 +472,10 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_itemLectorActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
