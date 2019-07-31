@@ -56,6 +56,10 @@ public class ListarPersona extends javax.swing.JInternalFrame {
         btnCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

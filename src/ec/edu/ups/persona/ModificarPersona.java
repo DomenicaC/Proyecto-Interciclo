@@ -223,23 +223,25 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        try {
         persona = new Persona();
         persona.setCedula(cedula);
         persona.setNombre(txtnombres.getText());
         persona.setApellido(txtapellido.getText());
         persona.setEdad(Integer.parseInt(txtedad.getText()));
         persona.setDireccion(txtdireccion.getText());
-        try {
-            controladorPersona.modificar(persona);
-        } catch (SQLException ex) {
-            Logger.getLogger(ModificarPersona.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        controladorPersona.modificar(persona);
         JOptionPane.showMessageDialog(this, "Persona modificada", "Modificar Persona", JOptionPane.OK_OPTION);
         txtcedula.setText("");
         txtnombres.setText("");
         txtapellido.setText("");
         txtedad.setText("");
         txtdireccion.setText("");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ModificarPersona.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -251,7 +253,8 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
             txtnombres.setText(p.getNombre());
             txtapellido.setText(p.getApellido());
             txtedad.setText(String.valueOf(p.getEdad()));
-            txtdireccion.setText(p.getDireccion());    
+            txtdireccion.setText(p.getDireccion());
+            cedula = txtcedula.getText();
         }else{
             JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
         }
