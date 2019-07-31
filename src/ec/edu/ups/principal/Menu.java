@@ -98,14 +98,14 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/principal/logo-ups-home.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         desktopPane1.add(jLabel1);
-        jLabel1.setBounds(780, 0, 290, 80);
+        jLabel1.setBounds(530, 0, 290, 80);
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Link Proyecto");
         desktopPane1.add(jTextField1);
-        jTextField1.setBounds(10, 460, 129, 28);
+        jTextField1.setBounds(10, 510, 140, 28);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("GitHub");
@@ -115,7 +115,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         desktopPane1.add(jButton2);
-        jButton2.setBounds(20, 510, 95, 31);
+        jButton2.setBounds(20, 560, 95, 31);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/principal/Login_37128.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         desktopPane1.add(jButton1);
-        jButton1.setBounds(20, 560, 100, 80);
+        jButton1.setBounds(20, 610, 100, 80);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Persona");
