@@ -214,6 +214,7 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
             txtcolor.setText(p.getColor());
             txtaño.setText(String.valueOf(p.getAño()));
             txtpersona.setText(p.getPerCedula());
+            placa = txtplaca.getText();
         } else {
             JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
         }
@@ -225,7 +226,7 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
         auto = new Auto();
         auto.setPlaca(placa);
         auto.setModelo(txtmodelo.getText());
-        auto.setColor(txtaño.getText());
+        auto.setColor(txtcolor.getText());
         auto.setAño(Integer.parseInt(txtaño.getText()));
         auto.setPerCedula(txtpersona.getText());
 
