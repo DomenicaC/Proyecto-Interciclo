@@ -17,6 +17,8 @@ import com.google.zxing.Result;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 import ec.edu.ups.controlador.ControladorAuto;
+import ec.edu.ups.controlador.ControladorPersona;
+import ec.edu.ups.persona.Persona;
 import ec.edu.ups.vehiculo.Auto;
 import java.awt.Desktop;
 import java.awt.image.BufferedImage;
@@ -74,6 +76,27 @@ public class LectorQR extends javax.swing.JInternalFrame {
         btnBuscarO = new javax.swing.JButton();
         lblImagen = new javax.swing.JButton();
         txtPlaca = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        lblplaca = new javax.swing.JLabel();
+        lblModelo = new javax.swing.JLabel();
+        txtPlaca1 = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        lblAño = new javax.swing.JLabel();
+        txtAño = new javax.swing.JTextField();
+        lblColor = new javax.swing.JLabel();
+        txtColor = new javax.swing.JTextField();
+        lblCedula = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        lblNombre1 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
+        lblApellido = new javax.swing.JLabel();
+        txtEdad = new javax.swing.JTextField();
+        lblEdad = new javax.swing.JLabel();
+        txtDir = new javax.swing.JTextField();
+        lblDir = new javax.swing.JLabel();
+        lblTiulo1 = new javax.swing.JLabel();
+        btnBuscarAuto = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -97,7 +120,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         });
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        btnBuscar.setText("Buscar");
+        btnBuscar.setText("Buscar Codigo");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -144,6 +167,47 @@ public class LectorQR extends javax.swing.JInternalFrame {
             }
         });
 
+        lblTitulo.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblTitulo.setText("Auto Encontrado");
+
+        lblplaca.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblplaca.setText("Placa:");
+
+        lblModelo.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblModelo.setText("Modelo:");
+
+        lblAño.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblAño.setText("Año:");
+
+        lblColor.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblColor.setText("Color:");
+
+        lblCedula.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblCedula.setText("Cedula:");
+
+        lblNombre1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblNombre1.setText("Nombre:");
+
+        lblApellido.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblApellido.setText("Apellido:");
+
+        lblEdad.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblEdad.setText("Edad:");
+
+        lblDir.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblDir.setText("Direccion:");
+
+        lblTiulo1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblTiulo1.setText("Propietario");
+
+        btnBuscarAuto.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        btnBuscarAuto.setText("Buscar Auto");
+        btnBuscarAuto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,35 +220,92 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTam)
                 .addGap(134, 134, 134))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(lblNombre)
+                        .addGap(254, 254, 254)
+                        .addComponent(lblFecha))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jlbRuta1)
                         .addGap(18, 18, 18)
                         .addComponent(txtUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnBuscarO, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblFecha)))
-                .addGap(65, 65, 65))
+                        .addComponent(btnBuscarO, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar)
-                            .addComponent(btnCancelar))
-                        .addGap(39, 39, 39))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnBuscar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(btnCancelar)))
+                                .addGap(45, 45, 45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarAuto)
+                                .addGap(54, 54, 54))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(198, 198, 198))))
+                        .addGap(198, 198, 198))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(131, 131, 131)
+                                .addComponent(lblCedula)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNombre1)
+                                    .addComponent(lblEdad))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(lblApellido))
+                                    .addComponent(lblDir))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDir, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblModelo)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblColor))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblplaca)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(txtPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblAño))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(195, 195, 195)
+                                        .addComponent(lblTiulo1)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(188, 188, 188)
+                                .addComponent(lblTitulo)))
+                        .addGap(132, 132, 132))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,14 +330,53 @@ public class LectorQR extends javax.swing.JInternalFrame {
                                 .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblTam))
                         .addGap(18, 18, 18)
-                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(32, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(296, 296, 296)
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btnCancelar)
-                        .addGap(294, 294, 294))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarAuto)))
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulo)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblplaca)
+                    .addComponent(txtPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAño)
+                    .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModelo)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblColor)
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(lblTiulo1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedula)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre1)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEdad)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblApellido)
+                            .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDir)
+                            .addComponent(txtDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -342,19 +502,71 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnBuscarOActionPerformed
 
+    private void btnBuscarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAutoActionPerformed
+
+        //auto
+        ControladorAuto cp = new ControladorAuto();
+        Auto p = new Auto();
+        p = cp.BuscarAuto(txtPlaca.getText());
+        if (p.getPlaca() != null) {
+            txtPlaca1.setText(p.getPlaca());
+            txtModelo.setText(p.getModelo());
+            txtColor.setText(p.getColor());
+            txtAño.setText(String.valueOf(p.getAño()));
+            txtCedula.setText(p.getPerCedula());
+        } else {
+            JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
+        }
+
+        //persona
+        ControladorPersona contPer = new ControladorPersona();
+        Persona persona = new Persona();
+        persona = contPer.BuscaarPersona(txtCedula.getText());
+        if (persona.getCedula() != null) {
+            txtNombre.setText(persona.getNombre());
+            txtApellido.setText(persona.getApellido());
+            txtEdad.setText(String.valueOf(persona.getEdad()));
+            txtDir.setText(p.getDireccion());
+        } else {
+            JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
+        }
+
+    }//GEN-LAST:event_btnBuscarAutoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarAuto;
     private javax.swing.JButton btnBuscarO;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jlbRuta1;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblAño;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDatos;
+    private javax.swing.JLabel lblDir;
+    private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JButton lblImagen;
+    private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblTam;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTiulo1;
+    private javax.swing.JLabel lblplaca;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtAño;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtDir;
+    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtPlaca1;
     private javax.swing.JTextField txtUbicacion;
     // End of variables declaration//GEN-END:variables
 }
