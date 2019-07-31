@@ -17,6 +17,9 @@ import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
 import javax.swing.JOptionPane;
+import java.awt.Desktop;
+import java.net.URI;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -43,7 +46,13 @@ public class Menu extends javax.swing.JFrame {
     private CrearAutoRobado autorobado;
 
     public Menu() {
+        
         initComponents();
+        desktopPane1.setBorder(new Fondo());
+        this.setExtendedState(Menu.MAXIMIZED_BOTH);
+        this.setTitle("PARKING PARKIANDO");        
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(("src/ec/edu/ups/imagenes/estacion.png")).getImage());
     }
 
     /**
@@ -55,7 +64,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        desktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -269,11 +278,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
+            .addComponent(desktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
+            .addComponent(desktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
         );
 
         pack();
@@ -286,7 +295,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (eliminarpersona == null || eliminarpersona.isVisible() == false) {
                     eliminarpersona = new ListarPersona();
-                    desktopPane.add(eliminarpersona);
+                    desktopPane1.add(eliminarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -304,7 +313,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (genQR == null || genQR.isVisible() == false) {
                     genQR = new GenerarQR();
-                    desktopPane.add(genQR);
+                    desktopPane1.add(genQR);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -322,7 +331,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (crearpersona == null || crearpersona.isVisible() == false) {
                     crearpersona = new CrearPersona();
-                    desktopPane.add(crearpersona);
+                    desktopPane1.add(crearpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -340,7 +349,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (buscarpersona == null || buscarpersona.isVisible() == false) {
                     buscarpersona = new BuscarPersona();
-                    desktopPane.add(buscarpersona);
+                    desktopPane1.add(buscarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -358,7 +367,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (modificarpersona == null || modificarpersona.isVisible() == false) {
                     modificarpersona = new ModificarPersona();
-                    desktopPane.add(modificarpersona);
+                    desktopPane1.add(modificarpersona);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -376,7 +385,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (crearauto == null || crearauto.isVisible() == false) {
                     crearauto = new CrearAuto();
-                    desktopPane.add(crearauto);
+                    desktopPane1.add(crearauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -394,7 +403,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (buscarauto == null || buscarauto.isVisible() == false) {
                     buscarauto = new BuscarAuto();
-                    desktopPane.add(buscarauto);
+                    desktopPane1.add(buscarauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -412,7 +421,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (modificarauto == null || modificarauto.isVisible() == false) {
                     modificarauto = new ModificarAuto();
-                    desktopPane.add(modificarauto);
+                    desktopPane1.add(modificarauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -430,7 +439,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (listarauto == null || listarauto.isVisible() == false) {
                     listarauto = new ListarAuto();
-                    desktopPane.add(listarauto);
+                    desktopPane1.add(listarauto);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -448,7 +457,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (lecQR == null || lecQR.isVisible() == false) {
                     lecQR = new LectorQR();
-                    desktopPane.add(lecQR);
+                    desktopPane1.add(lecQR);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -466,7 +475,7 @@ public class Menu extends javax.swing.JFrame {
             if (x == null) {
                 if (autorobado == null || autorobado.isVisible() == false) {
                     autorobado = new CrearAutoRobado();
-                    desktopPane.add(autorobado);
+                    desktopPane1.add(autorobado);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -525,7 +534,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
-    public static javax.swing.JDesktopPane desktopPane;
+    public static javax.swing.JDesktopPane desktopPane1;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
