@@ -52,7 +52,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         setLocation(a / 2, b / 2);
         setVisible(true);
-        
+
         lblApellido.setVisible(false);
         lblAño.setVisible(false);
         lblCedula.setVisible(false);
@@ -65,7 +65,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblTitulo.setVisible(false);
         lblTiulo1.setVisible(false);
         lblPlaca.setVisible(false);
-        
+
         txtApellido.setVisible(false);
         txtAño.setVisible(false);
         txtCedula.setVisible(false);
@@ -553,7 +553,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
         }
-        
+
         lblApellido.setVisible(true);
         lblAño.setVisible(true);
         lblCedula.setVisible(true);
@@ -566,7 +566,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblTitulo.setVisible(true);
         lblTiulo1.setVisible(true);
         lblPlaca.setVisible(true);
-        
+
         txtApellido.setVisible(true);
         txtAño.setVisible(true);
         txtCedula.setVisible(true);
