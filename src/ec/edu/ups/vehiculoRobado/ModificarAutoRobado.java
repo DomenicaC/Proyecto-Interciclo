@@ -271,38 +271,34 @@ public class ModificarAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JPasswordField admin = new JPasswordField();
-      
-if(JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar",JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
-    
-}
 
+        if (JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+            try {
+                autoR = new AutoRobado();
+                autoR.setPlaca(placa);
+                autoR.setModelo(txtmodelo.getText());
+                autoR.setColor(txtcolor.getText());
+                autoR.setAño(Integer.parseInt(txtaño.getText()));
+                autoR.setFechaRobo(formato.parse(txtfecha.getText()));
+                autoR.setPerCedula(txtpersona.getText());
 
-        try{
-        autoR = new AutoRobado();
-        autoR.setPlaca(placa);
-        autoR.setModelo(txtmodelo.getText());
-        autoR.setColor(txtcolor.getText());
-        autoR.setAño(Integer.parseInt(txtaño.getText()));
-        autoR.setFechaRobo(formato.parse(txtfecha.getText()));
-        autoR.setPerCedula(txtpersona.getText());
+                controladorAutoR.updateAutoR(autoR);
 
-        controladorAutoR.updateAutoR(autoR);
-
-        JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
-        txtplaca.setText("");
-        txtmodelo.setText("");
-        txtcolor.setText("");
-        txtaño.setText("");
-        txtfecha.setText("");
-        txtpersona.setText("");
-        }catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, "Fecha Incorrecta", "Error Fecha", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
+                txtplaca.setText("");
+                txtmodelo.setText("");
+                txtcolor.setText("");
+                txtaño.setText("");
+                txtfecha.setText("");
+                txtpersona.setText("");
+            } catch (ParseException ex) {
+                JOptionPane.showMessageDialog(this, "Fecha Incorrecta", "Error Fecha", JOptionPane.OK_OPTION);
+            }
         }
-        
-    
-    
-        
 
+
+        
+        
 
     }//GEN-LAST:event_jButton3ActionPerformed
 

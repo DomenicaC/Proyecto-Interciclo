@@ -230,24 +230,24 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         JPasswordField admin = new JPasswordField();
       
-if(JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar",JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
-    
-}
-        auto = new Auto();
-        auto.setPlaca(placa);
-        auto.setModelo(txtmodelo.getText());
-        auto.setColor(txtcolor.getText());
-        auto.setAño(Integer.parseInt(txtaño.getText()));
-        auto.setPerCedula(txtpersona.getText());
+        if (JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+            auto = new Auto();
+            auto.setPlaca(placa);
+            auto.setModelo(txtmodelo.getText());
+            auto.setColor(txtcolor.getText());
+            auto.setAño(Integer.parseInt(txtaño.getText()));
+            auto.setPerCedula(txtpersona.getText());
 
-        controladorauto.updateAuto(auto);
+            controladorauto.updateAuto(auto);
 
-        JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
-        txtplaca.setText("");
-        txtmodelo.setText("");
-        txtcolor.setText("");
-        txtaño.setText("");
-        txtpersona.setText("");
+            JOptionPane.showMessageDialog(this, "Auto Modificado", "Modificar Auto", JOptionPane.OK_OPTION);
+            txtplaca.setText("");
+            txtmodelo.setText("");
+            txtcolor.setText("");
+            txtaño.setText("");
+            txtpersona.setText("");
+        }
+        
         
     }//GEN-LAST:event_jButton4ActionPerformed
 

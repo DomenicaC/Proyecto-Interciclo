@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -224,6 +225,8 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+      JPasswordField admin = new JPasswordField();
+       if (JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) { 
         try {
         persona = new Persona();
         persona.setCedula(cedula);
@@ -242,7 +245,7 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(ModificarPersona.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       } 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

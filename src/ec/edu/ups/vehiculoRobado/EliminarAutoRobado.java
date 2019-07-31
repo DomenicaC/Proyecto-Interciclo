@@ -32,7 +32,6 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
-
         setLocation(a / 2, b / 2);
         setVisible(true);
          formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -311,24 +310,25 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-      
+      dispose();
+      x=null;
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          // TODO add your handling code here:
-         JPasswordField admin = new JPasswordField();
-      
-if(JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar",JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
+        JPasswordField admin = new JPasswordField();
     
-}
-         controladorAutoR.deleteAuto(txtplaca.getText());
-        JOptionPane.showMessageDialog(this, "Persona eliminada","Eliminar Persona",JOptionPane.OK_OPTION);
-        txtplaca.setText("");
-        txtmodelo.setText("");
-        txtcolor.setText("");
-        txtaño.setText("");
-        txtfecha.setText("");
-        txtpersona.setText("");
+        if (JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+            controladorAutoR.deleteAuto(txtplaca.getText());
+            JOptionPane.showMessageDialog(this, "Persona eliminada", "Eliminar Persona", JOptionPane.OK_OPTION);
+            txtplaca.setText("");
+            txtmodelo.setText("");
+            txtcolor.setText("");
+            txtaño.setText("");
+            txtfecha.setText("");
+            txtpersona.setText("");
+        }
+         
         
 
         
