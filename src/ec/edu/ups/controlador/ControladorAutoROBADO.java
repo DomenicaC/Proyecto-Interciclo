@@ -89,9 +89,9 @@ public class ControladorAutoROBADO {
 
         String sql = "UPDATE\"AUTOROBADO\" SET \"AUT_MODELO\" = '"
                 + autor.getModelo() + "', \"AUT_COLOR\" = '"
-                + autor.getColor() + "', \"AUT_AÑO\" = "
-                + autor.getAño()+ ",\"PER_FECHA\" = '" 
-                + formato.format(autor.getFechaRobo()) + ", \"PER_CEDULA\" = '"
+                + autor.getColor() + "', \"AUT_AÑO\" = '"
+                + autor.getAño()+ "',\"AUT_FECHAROBO\" = '" 
+                +formato.format(autor.getFechaRobo()) + "', \"PER_CEDULA\" = '"
                 + autor.getPerCedula() + "' WHERE \"AUT_PLACA\" ='" + autor.getPlaca() + "';";
         System.out.println("Base de datos " + sql);
 

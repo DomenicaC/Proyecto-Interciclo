@@ -56,11 +56,14 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         txtNumPuesto = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jlitPuesto = new javax.swing.JList();
+        txtpuesto = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 3, 24)); // NOI18N
         jLabel1.setText("PARKIANDO");
@@ -88,29 +91,32 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PUESTOS OCUPADOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Rockwell", 1, 14))); // NOI18N
 
-        jScrollPane1.setViewportView(jlitPuesto);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(txtpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addComponent(txtpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ENTRADA/SALIDA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Rockwell", 1, 14))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         jButton1.setText("ENTRADA");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -191,10 +197,9 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
             System.out.println("Error " + ex.toString());
 
         }
-
-        for (i = 1; i <= 8; i++) {
-
-            num = 1 + (int) (Math.random() * 8);
+        
+            
+            /* num = 1 + (int) (Math.random() * 8);
 
             if (lista.contains(num)) {
 
@@ -206,10 +211,9 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
                 lista.add(num);
                 jlitPuesto.add(txtNumPuesto);
 
-            }
+            }*/
 
-        }
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -217,8 +221,10 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
         try {
 
             arduino.sendData("2");
-
-            txtNumPuesto.getText();
+             } catch (Exception ex) {
+            System.out.println("Error " + ex.toString());
+        }
+           /* txtNumPuesto.getText();
 
             for (Object lista1 : lista) {
 
@@ -229,14 +235,19 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
 
                 }
 
-            }
+            }*/
 
-        } catch (Exception ex) {
-            System.out.println("Error " + ex.toString());
-        }
+       
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+       
+     int clicks;
+        
+    }//GEN-LAST:event_jButton1MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -246,8 +257,7 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList jlitPuesto;
     private javax.swing.JTextField txtNumPuesto;
+    private javax.swing.JTextField txtpuesto;
     // End of variables declaration//GEN-END:variables
 }
