@@ -225,6 +225,7 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
                 if (lista1 == txtNumPuesto.getText()) {
 
                     jlitPuesto.remove(this);
+                    break;
 
                 }
 
@@ -233,6 +234,7 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             System.out.println("Error " + ex.toString());
         }
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
