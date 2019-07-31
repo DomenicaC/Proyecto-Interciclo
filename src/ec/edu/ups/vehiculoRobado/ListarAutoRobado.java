@@ -18,14 +18,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author erics
  */
-public class ListarAuto extends javax.swing.JInternalFrame {
+public class ListarAutoRobado extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     private ControladorAuto controladorauto;
     public static String x;
     /**
      * Creates new form Eliminar
      */
-    public ListarAuto() {
+    public ListarAutoRobado() {
         initComponents();
         controladorauto = new ControladorAuto();
         llenarDatos();   
@@ -63,8 +63,8 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         table = new javax.swing.JTable();
         btnCerrar = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Palatino Linotype", 2, 48)); // NOI18N
-        jLabel1.setText("ListarAuto");
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        jLabel1.setText("Listar Auto");
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,6 +84,7 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
+        btnCerrar.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,14 +96,14 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
-                .addComponent(jLabel1)
-                .addContainerGap(226, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(555, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(194, 194, 194)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -112,9 +113,9 @@ public class ListarAuto extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(btnCerrar)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

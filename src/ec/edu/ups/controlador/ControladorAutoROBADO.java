@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vehiculoRobado;
+package ec.edu.ups.controlador;
 
 import ec.edu.ups.controlador.*;
 import ec.edu.ups.vehiculo.Auto;
+import ec.edu.ups.vehiculoRobado.AutoRobado;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,11 +30,12 @@ public class ControladorAutoROBADO {
     }
 
     public void create(AutoRobado autor) {
+        String fecha = formato.format(autor.getFechaRobo());
         String sql = "INSERT INTO \"AUTOROBADO\" VALUES('" + autor.getPlaca()
                 + "','" + autor.getModelo() + "'"
                 + ",'" + autor.getColor() + "','"
-                + autor.getAño() + "','"
-                + formato.format(autor.getFechaRobo()) + "','"
+                + autor.getAño() + ",'"
+                + fecha + "','"
                 + autor.getPerCedula() + "');";
 
         System.out.println(sql);
@@ -67,7 +69,7 @@ public class ControladorAutoROBADO {
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
                 auto.setAño(res.getInt("AUT_AÑO"));
-                 auto.setFechaRobo(res.getDate("AUT_FECHA"));
+                 auto.setFechaRobo(res.getDate("AUT_FECHAROBO"));
                 auto.setPerCedula(res.getString("PER_CEDULA"));
 
             }
