@@ -238,7 +238,7 @@ public class CrearAutoRobado extends javax.swing.JInternalFrame {
             d.setModelo(txtmodelo.getText());
             d.setColor(txtcolor.getText());
             d.setAño(Integer.parseInt(txtaño.getText()));
-            d.setFechaRobo((Date) formato.parse(txtfecha.getText()));
+            d.setFechaRobo( formato.parse(txtfecha.getText()));
             d.setPerCedula(txtpersona.getText());
             controladorautorobado.create(d);
             JOptionPane.showMessageDialog(this, "Auto Creado", "Crear Auto", JOptionPane.OK_OPTION);
