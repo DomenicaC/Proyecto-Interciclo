@@ -52,6 +52,29 @@ public class LectorQR extends javax.swing.JInternalFrame {
 
         setLocation(a / 2, b / 2);
         setVisible(true);
+        
+        lblApellido.setVisible(false);
+        lblAño.setVisible(false);
+        lblCedula.setVisible(false);
+        lblColor.setVisible(false);
+        lblDir.setVisible(false);
+        lblEdad.setVisible(false);
+        lblFecha.setVisible(false);
+        lblModelo.setVisible(false);
+        lblNombre1.setVisible(false);
+        lblTitulo.setVisible(false);
+        lblTiulo1.setVisible(false);
+        lblPlaca.setVisible(false);
+        
+        txtApellido.setVisible(false);
+        txtAño.setVisible(false);
+        txtCedula.setVisible(false);
+        txtColor.setVisible(false);
+        txtDir.setVisible(false);
+        txtEdad.setVisible(false);
+        txtModelo.setVisible(false);
+        txtPlaca1.setVisible(false);
+        txtNombre.setVisible(false);
 
     }
 
@@ -77,7 +100,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblImagen = new javax.swing.JButton();
         txtPlaca = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
-        lblplaca = new javax.swing.JLabel();
+        lblPlaca = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
         txtPlaca1 = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
@@ -170,8 +193,8 @@ public class LectorQR extends javax.swing.JInternalFrame {
         lblTitulo.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblTitulo.setText("Auto Encontrado");
 
-        lblplaca.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblplaca.setText("Placa:");
+        lblPlaca.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblPlaca.setText("Placa:");
 
         lblModelo.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblModelo.setText("Modelo:");
@@ -290,7 +313,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(lblColor))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblplaca)
+                                        .addComponent(lblPlaca)
                                         .addGap(35, 35, 35)
                                         .addComponent(txtPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -342,7 +365,7 @@ public class LectorQR extends javax.swing.JInternalFrame {
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblplaca)
+                    .addComponent(lblPlaca)
                     .addComponent(txtPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAño)
                     .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -530,6 +553,29 @@ public class LectorQR extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
         }
+        
+        lblApellido.setVisible(true);
+        lblAño.setVisible(true);
+        lblCedula.setVisible(true);
+        lblColor.setVisible(true);
+        lblDir.setVisible(true);
+        lblEdad.setVisible(true);
+        lblFecha.setVisible(true);
+        lblModelo.setVisible(true);
+        lblNombre1.setVisible(true);
+        lblTitulo.setVisible(true);
+        lblTiulo1.setVisible(true);
+        lblPlaca.setVisible(true);
+        
+        txtApellido.setVisible(true);
+        txtAño.setVisible(true);
+        txtCedula.setVisible(true);
+        txtColor.setVisible(true);
+        txtDir.setVisible(true);
+        txtEdad.setVisible(true);
+        txtModelo.setVisible(true);
+        txtPlaca1.setVisible(true);
+        txtNombre.setVisible(true);
 
     }//GEN-LAST:event_btnBuscarAutoActionPerformed
 
@@ -553,10 +599,10 @@ public class LectorQR extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblPlaca;
     private javax.swing.JLabel lblTam;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTiulo1;
-    private javax.swing.JLabel lblplaca;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtAño;
     private javax.swing.JTextField txtCedula;
