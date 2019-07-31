@@ -253,7 +253,7 @@ if(JOptionPane.showConfirmDialog(null, admin, "Ingrese contraseña para eliminar
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         this.setVisible(false);
+        //this.setVisible(false);
         this.dispose();
         x = null;
     }//GEN-LAST:event_jButton2ActionPerformed

@@ -28,7 +28,7 @@ public class BaseDeDatos {
         
          String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
         String user = "postgres";
-        String password = "sebas19";
+        String password = "QLJPikrq7833";
 
         try{
             conexionBD = DriverManager.getConnection(url, user, password);

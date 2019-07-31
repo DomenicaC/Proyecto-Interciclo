@@ -7,6 +7,8 @@ package ec.edu.ups.vista.parqueo;
 
 import ec.edu.ups.principal.Menu;
 import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -22,6 +24,7 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
     public static String x;
     public int num, i;
     ArrayList lista = new ArrayList();
+    Scanner leer = new Scanner(System.in);
 
     public PuestoParqueo() {
         initComponents();
@@ -197,9 +200,8 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
             System.out.println("Error " + ex.toString());
 
         }
-        
-            
-            /* num = 1 + (int) (Math.random() * 8);
+
+        /* num = 1 + (int) (Math.random() * 8);
 
             if (lista.contains(num)) {
 
@@ -213,7 +215,6 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
 
             }*/
 
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -221,10 +222,10 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
         try {
 
             arduino.sendData("2");
-             } catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Error " + ex.toString());
         }
-           /* txtNumPuesto.getText();
+        /* txtNumPuesto.getText();
 
             for (Object lista1 : lista) {
 
@@ -237,16 +238,14 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
 
             }*/
 
-       
-
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
         // TODO add your handling code here:
-       
-     int clicks;
-        
+
+        int clicks;
+
     }//GEN-LAST:event_jButton1MousePressed
 
 
