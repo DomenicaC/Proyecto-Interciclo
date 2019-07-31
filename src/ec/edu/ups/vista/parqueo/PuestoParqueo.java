@@ -7,8 +7,6 @@ package ec.edu.ups.vista.parqueo;
 
 import ec.edu.ups.principal.Menu;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -23,6 +21,7 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
     PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     public static String x;
     public int num, i;
+    ArrayList lista = new ArrayList();
 
     public PuestoParqueo() {
         initComponents();
@@ -197,9 +196,11 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
 
             num = 1 + (int) (Math.random() * 8);
 
-            ArrayList lista = new ArrayList();
-
             if (lista.contains(num)) {
+
+                System.out.println("Puesto Ocupado " + num);
+
+            } else {
 
                 txtNumPuesto.setText(Integer.toString(num));
                 lista.add(num);
@@ -218,7 +219,16 @@ public class PuestoParqueo extends javax.swing.JInternalFrame {
             arduino.sendData("2");
 
             txtNumPuesto.getText();
-            jlitPuesto.remove(this);
+
+            for (Object lista1 : lista) {
+
+                if (lista1 == txtNumPuesto.getText()) {
+
+                    jlitPuesto.remove(this);
+
+                }
+
+            }
 
         } catch (Exception ex) {
             System.out.println("Error " + ex.toString());
