@@ -7,6 +7,7 @@ package ec.edu.ups.vehiculoRobado;
 
 import ec.edu.ups.vehiculo.*;
 import ec.edu.ups.controlador.ControladorAuto;
+import ec.edu.ups.controlador.ControladorAutoROBADO;
 import ec.edu.ups.controlador.ControladorPersona;
 import static ec.edu.ups.persona.ListarPersona.x;
 import ec.edu.ups.persona.Persona;
@@ -20,14 +21,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListarAutoRobado extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
-    private ControladorAuto controladorauto;
+    private ControladorAutoROBADO controladorautorobado;
     public static String x;
     /**
      * Creates new form Eliminar
      */
     public ListarAutoRobado() {
         initComponents();
-        controladorauto = new ControladorAuto();
+        controladorautorobado = new ControladorAutoROBADO();
         llenarDatos();   
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
@@ -38,12 +39,13 @@ public class ListarAutoRobado extends javax.swing.JInternalFrame {
     }
     public void llenarDatos() {
         modelo = (DefaultTableModel) table.getModel();
-        Set<Auto> lista = controladorauto.printAuto();
-        for (Auto a : lista) {
+        Set<AutoRobado> lista = controladorautorobado.printAuto();
+        for (AutoRobado a : lista) {
             Object[] datos = {a.getPlaca(),
             a.getModelo(),
             a.getColor(),
            a.getAño(),
+           a.getFechaRobo(),
             a.getPerCedula()};
             modelo.addRow(datos);
         }

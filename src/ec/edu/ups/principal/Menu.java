@@ -15,7 +15,9 @@ import ec.edu.ups.vehiculo.BuscarAuto;
 import ec.edu.ups.vehiculo.CrearAuto;
 import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
+import ec.edu.ups.vehiculoRobado.BuscarAutoRobado;
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
+import ec.edu.ups.vehiculoRobado.ListarAutoRobado;
 import ec.edu.ups.vista.parqueo.PuestoParqueo;
 import javax.swing.JOptionPane;
 import java.awt.Desktop;
@@ -45,6 +47,8 @@ public class Menu extends javax.swing.JFrame {
     private ListarAuto listarauto;
 
     private CrearAutoRobado autorobado;
+    private BuscarAutoRobado autorobado1;
+    private ListarAutoRobado listarautorobado;
 
     private PuestoParqueo puestoP;
 
@@ -87,6 +91,9 @@ public class Menu extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         helpMenu1 = new javax.swing.JMenu();
         itemPuesto = new javax.swing.JMenuItem();
         helpMenu5 = new javax.swing.JMenu();
@@ -221,13 +228,27 @@ public class Menu extends javax.swing.JFrame {
         helpMenu.add(contentMenuItem);
 
         aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
+        aboutMenuItem.setText("Buscar");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aboutMenuItemActionPerformed(evt);
             }
         });
         helpMenu.add(aboutMenuItem);
+
+        jMenuItem1.setText("Modificar");
+        helpMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("Eliminar");
+        helpMenu.add(jMenuItem2);
+
+        jMenuItem3.setText("Listar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        helpMenu.add(jMenuItem3);
 
         menuBar.add(helpMenu);
 
@@ -466,6 +487,20 @@ public class Menu extends javax.swing.JFrame {
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         // TODO add your handling code here:
+        String x = BuscarAutoRobado.x;
+        try {
+            if (x == null) {
+                if (autorobado1 == null || autorobado1.isVisible() == false) {
+                    autorobado1 = new BuscarAutoRobado();
+                    desktopPane1.add(autorobado1);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
@@ -523,6 +558,26 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_itemPuestoActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here: 
+         String x = ListarAutoRobado.x;
+        try {
+            if (x == null) {
+                if (listarautorobado == null || listarautorobado.isVisible() == false) {
+                    listarautorobado = new ListarAutoRobado();
+                    desktopPane1.add(listarautorobado);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -577,6 +632,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;

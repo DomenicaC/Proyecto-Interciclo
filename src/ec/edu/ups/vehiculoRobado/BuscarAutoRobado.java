@@ -7,10 +7,13 @@ package ec.edu.ups.vehiculoRobado;
 
 import ec.edu.ups.vehiculo.*;
 import ec.edu.ups.controlador.ControladorAuto;
+import ec.edu.ups.controlador.ControladorAutoROBADO;
 import ec.edu.ups.controlador.ControladorPersona;
 import static ec.edu.ups.persona.BuscarPersona.x;
 import ec.edu.ups.persona.Persona;
 import ec.edu.ups.principal.Menu;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,8 @@ import javax.swing.JOptionPane;
  */
 public class BuscarAutoRobado extends javax.swing.JInternalFrame {
      public static String x;
+     private SimpleDateFormat formato;
+
     /**
      * Creates new form Buscar
      */
@@ -28,9 +33,9 @@ public class BuscarAutoRobado extends javax.swing.JInternalFrame {
          x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
-
         setLocation(a / 2, b / 2);
         setVisible(true);
+        formato = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     /**
@@ -217,17 +222,19 @@ public class BuscarAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       ControladorAuto cp = new ControladorAuto();
-        Auto p = new Auto();
+       ControladorAutoROBADO cp = new ControladorAutoROBADO();
+        AutoRobado p = new AutoRobado();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {
             txtmodelo.setText(p.getModelo());
             txtcolor.setText(p.getColor());
             txtaño.setText(String.valueOf(p.getAño()));
+            txtfecha.setText(formato.format(p.getFechaRobo()));
             txtpersona.setText(p.getPerCedula());    
         }else{
             JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
         }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
