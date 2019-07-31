@@ -66,6 +66,10 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -97,6 +101,37 @@ public class Menu extends javax.swing.JFrame {
         itemLector = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/principal/logo-ups-home.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        desktopPane1.add(jLabel1);
+        jLabel1.setBounds(780, 0, 290, 80);
+
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("Link Proyecto");
+        desktopPane1.add(jTextField1);
+        jTextField1.setBounds(10, 460, 129, 28);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setText("GitHub");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        desktopPane1.add(jButton2);
+        jButton2.setBounds(20, 510, 95, 31);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/principal/Login_37128.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        desktopPane1.add(jButton1);
+        jButton1.setBounds(20, 560, 100, 80);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Persona");
@@ -495,6 +530,25 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try{
+            Desktop.getDesktop().browse(new URI("https://github.com/DomenicaC/Proyecto-Interciclo"));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error el URL no existe");
+        } try{
+            Desktop.getDesktop().browse(new URI("https://github.com/DomenicaC/Proyecto-Interciclo"));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error el URL no existe");
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -556,6 +610,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu5;
     private javax.swing.JMenuItem itemGene;
     private javax.swing.JMenuItem itemLector;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
