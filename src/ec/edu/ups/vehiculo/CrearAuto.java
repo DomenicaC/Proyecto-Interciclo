@@ -20,13 +20,15 @@ public class CrearAuto extends javax.swing.JInternalFrame {
 
     private ControladorAuto controladorauto;
     public static String x;
-    
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form Crear
      */
     public CrearAuto() {
         initComponents();
-        this.controladorauto = new ControladorAuto();
+        this.controladorauto = new ControladorAuto(url, user, password);
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
@@ -200,7 +202,7 @@ public class CrearAuto extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Auto d = new Auto();
-        ControladorPersona cp = new ControladorPersona();
+        ControladorPersona cp = new ControladorPersona(url, user, password);
         if (cp.BuscaarPersona(txtpersona.getText()).getCedula() != null) {
             d.setPlaca(txtplaca.getText());
             d.setModelo(txtmodelo.getText());

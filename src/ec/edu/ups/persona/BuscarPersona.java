@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
  * @author erics
  */
 public class BuscarPersona extends javax.swing.JInternalFrame {
-    
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     private ControladorPersona controladorPersona;
      public static String x;
     /**
@@ -24,7 +26,7 @@ public class BuscarPersona extends javax.swing.JInternalFrame {
      */
     public BuscarPersona() {
         initComponents();
-        controladorPersona = new ControladorPersona();
+        controladorPersona = new ControladorPersona(url, user, password);
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
@@ -210,7 +212,7 @@ public class BuscarPersona extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ControladorPersona cp = new ControladorPersona();
+        ControladorPersona cp = new ControladorPersona(url, user, password);
         Persona p = new Persona();
         p = cp.BuscaarPersona(txtcedula.getText());
         if (p.getCedula() != null) {

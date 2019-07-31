@@ -23,12 +23,15 @@ public class ListarAutoRobado extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     private ControladorAutoROBADO controladorautorobado;
     public static String x;
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form Eliminar
      */
     public ListarAutoRobado() {
         initComponents();
-        controladorautorobado = new ControladorAutoROBADO();
+        controladorautorobado = new ControladorAutoROBADO(url, user, password);
         llenarDatos();   
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();

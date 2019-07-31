@@ -55,6 +55,9 @@ public class Menu extends javax.swing.JFrame {
     
 
     private PuestoParqueo puestoP;
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
 
     public Menu() {
 
@@ -351,7 +354,7 @@ public class Menu extends javax.swing.JFrame {
         try {
             if (x == null) {
                 if (crearpersona == null || crearpersona.isVisible() == false) {
-                    crearpersona = new CrearPersona();
+                    crearpersona = new CrearPersona(url, user, password);
                     desktopPane1.add(crearpersona);
                 }
             } else {
@@ -387,7 +390,7 @@ public class Menu extends javax.swing.JFrame {
         try {
             if (x == null) {
                 if (modificarpersona == null || modificarpersona.isVisible() == false) {
-                    modificarpersona = new ModificarPersona();
+                    modificarpersona = new ModificarPersona(url, user, password);
                     desktopPane1.add(modificarpersona);
                 }
             } else {

@@ -21,12 +21,15 @@ public class ListarAuto extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     private ControladorAuto controladorauto;
     public static String x;
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form Eliminar
      */
     public ListarAuto() {
         initComponents();
-        controladorauto = new ControladorAuto();
+        controladorauto = new ControladorAuto(url, user, password);
         llenarDatos();   
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();

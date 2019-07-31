@@ -18,6 +18,9 @@ import javax.swing.JOptionPane;
  */
 public class BuscarAuto extends javax.swing.JInternalFrame {
      public static String x;
+     String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form Buscar
      */
@@ -199,7 +202,7 @@ public class BuscarAuto extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       ControladorAuto cp = new ControladorAuto();
+       ControladorAuto cp = new ControladorAuto(url, user, password);
         Auto p = new Auto();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {

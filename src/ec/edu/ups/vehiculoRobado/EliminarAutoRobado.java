@@ -19,8 +19,10 @@ import javax.swing.JPasswordField;
  */
 public class EliminarAutoRobado extends javax.swing.JInternalFrame {
      private AutoRobado autoR;
-    
-     private ControladorAutoROBADO controladorAutoR = new ControladorAutoROBADO();
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
+     private ControladorAutoROBADO controladorAutoR = new ControladorAutoROBADO(url, user, password);
     private String placa;
     public static String x;
     private SimpleDateFormat formato;
@@ -336,7 +338,7 @@ public class EliminarAutoRobado extends javax.swing.JInternalFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
-         ControladorAutoROBADO cp = new ControladorAutoROBADO();
+         ControladorAutoROBADO cp = new ControladorAutoROBADO(url, user, password);
         AutoRobado p = new AutoRobado();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {

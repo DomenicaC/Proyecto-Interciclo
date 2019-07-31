@@ -13,7 +13,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Edison
  */
 public class ListarPersona extends javax.swing.JInternalFrame {
-
+String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form Listar
      */
@@ -23,7 +25,7 @@ public class ListarPersona extends javax.swing.JInternalFrame {
 
     public ListarPersona() {
         initComponents();
-        controladorPersona = new ControladorPersona();
+        controladorPersona = new ControladorPersona(url, user, password);
         llenarDatos();   
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();

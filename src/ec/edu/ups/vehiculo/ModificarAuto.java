@@ -22,11 +22,14 @@ import javax.swing.JPasswordField;
  * @author erics
  */
 public class ModificarAuto extends javax.swing.JInternalFrame {
-
+String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     private Auto auto;
-    private ControladorAuto controladorauto = new ControladorAuto();
+    private ControladorAuto controladorauto = new ControladorAuto(url, user, password);
     private String placa;
     public static String x;
+    
 
     /**
      * Creates new form Modificar
@@ -212,7 +215,7 @@ public class ModificarAuto extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        ControladorAuto cp = new ControladorAuto();
+        ControladorAuto cp = new ControladorAuto(url, user, password);
         Auto p = new Auto();
         p = cp.BuscarAuto(txtplaca.getText());
         if (p.getPlaca() != null) {

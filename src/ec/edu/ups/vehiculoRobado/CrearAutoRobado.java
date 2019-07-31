@@ -22,7 +22,9 @@ import javax.swing.JOptionPane;
  * @author erics
  */
 public class CrearAutoRobado extends javax.swing.JInternalFrame {
-
+String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     private ControladorAutoROBADO controladorautorobado;
     public static String x;
      private SimpleDateFormat formato;
@@ -31,7 +33,7 @@ public class CrearAutoRobado extends javax.swing.JInternalFrame {
      */
     public CrearAutoRobado() {
         initComponents();
-        controladorautorobado = new ControladorAutoROBADO();
+        controladorautorobado = new ControladorAutoROBADO(url, user, password);
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
@@ -221,7 +223,7 @@ public class CrearAutoRobado extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AutoRobado d = new AutoRobado();
-        ControladorPersona cp = new ControladorPersona();
+        ControladorPersona cp = new ControladorPersona(url, user, password);
         if (cp.BuscaarPersona(txtpersona.getText()).getCedula() != null) {
             try{
             d.setPlaca(txtplaca.getText());

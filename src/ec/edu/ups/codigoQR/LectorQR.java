@@ -46,6 +46,9 @@ import panamahitek.Arduino.PanamaHitek_Arduino;
  */
 public class LectorQR extends javax.swing.JInternalFrame {
 PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
+ String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form LectorQR
      */
@@ -87,9 +90,7 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
 
     }
     public void generarPDF() {
-        String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
-        String user = "postgres";
-        String password = "sebas19";
+        
         
         BaseDeDatos base = new BaseDeDatos(url, user, password);
         base.conectar();
@@ -459,7 +460,7 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
                 System.out.println("Contenido mapa " + resultado.getText());
                 txtPlaca.setText(resultado.getText());
 
-                ControladorAuto cp = new ControladorAuto();
+                ControladorAuto cp = new ControladorAuto(url, user, password);
                 Auto p = new Auto();
                 p = cp.BuscarAuto(txtPlaca.getText());
                 if (p.getPlaca() != null) {
@@ -557,7 +558,7 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     private void btnBuscarAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAutoActionPerformed
 
         //auto
-        ControladorAuto cp = new ControladorAuto();
+        ControladorAuto cp = new ControladorAuto(url, user, password);
         Auto p = new Auto();
         p = cp.BuscarAuto(txtPlaca.getText());
         if (p.getPlaca() != null) {
@@ -571,7 +572,7 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
         }
 
         //persona
-        ControladorPersona contPer = new ControladorPersona();
+        ControladorPersona contPer = new ControladorPersona(url, user, password);
         Persona persona = new Persona();
         persona = contPer.BuscaarPersona(txtCedula.getText());
         if (persona.getCedula() != null) {
