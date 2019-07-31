@@ -48,11 +48,12 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         
         initComponents();
-        desktopPane1.setBorder(new Fondo());
-        this.setExtendedState(Menu.MAXIMIZED_BOTH);
+        
         this.setTitle("PARKING PARKIANDO");        
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(("src/ec/edu/ups/principal/estacion.png")).getImage());
+        desktopPane1.setBorder(new Fondo());
+        this.setExtendedState(Menu.MAXIMIZED_BOTH);
     }
 
     /**

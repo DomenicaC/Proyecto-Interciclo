@@ -18,6 +18,7 @@ import javax.swing.border.Border;
  * @author Byron PC
  */
 public class Fondo implements Border{
+  
     public BufferedImage back;
  
     public Fondo(){
@@ -28,9 +29,14 @@ public class Fondo implements Border{
         }
     }
 
+
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawImage(back, (x + (width - back.getWidth())/2),(y + (height - back.getHeight())/2), null);
-    }
+        if(back !=null);{
+      
+     g.drawImage(back, 0, 0,width,height, null);
+ 
+    
+    }}
  
     public Insets getBorderInsets(Component c) {
         return new Insets(0,0,0,0);
@@ -41,3 +47,5 @@ public class Fondo implements Border{
     }
  
 }
+
+
