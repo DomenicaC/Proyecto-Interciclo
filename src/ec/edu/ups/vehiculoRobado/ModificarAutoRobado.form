@@ -186,19 +186,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txta&#xf1;o">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtcolor">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtmodelo">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtplaca">
         </Component>
@@ -222,17 +213,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtfecha">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtfechaKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtpersona">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>

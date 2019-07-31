@@ -30,12 +30,12 @@ public class ControladorAutoROBADO {
     }
 
     public void create(AutoRobado autor) {
-        String fecha = formato.format(autor.getFechaRobo());
+    
         String sql = "INSERT INTO \"AUTOROBADO\" VALUES('" + autor.getPlaca()
                 + "','" + autor.getModelo() + "'"
                 + ",'" + autor.getColor() + "','"
-                + autor.getAño() + ",'"
-                + fecha + "','"
+                + autor.getAño() + "','"
+                + formato.format(autor.getFechaRobo()) + "','"
                 + autor.getPerCedula() + "');";
 
         System.out.println(sql);
@@ -148,7 +148,7 @@ public class ControladorAutoROBADO {
                 auto.setModelo(res.getString("AUT_MODELO"));
                 auto.setColor(res.getString("AUT_COLOR"));
                 auto.setAño(res.getInt("AUT_AÑO"));
-                 auto.setFechaRobo(res.getDate("AUT_FECHA"));
+                auto.setFechaRobo(res.getDate("AUT_FECHAROBO"));
                 auto.setPerCedula(res.getString("PER_CEDULA"));
                 lista.add(auto);
 
