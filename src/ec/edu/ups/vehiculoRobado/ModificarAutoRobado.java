@@ -7,12 +7,15 @@ package ec.edu.ups.vehiculoRobado;
 
 import ec.edu.ups.vehiculo.*;
 import ec.edu.ups.controlador.ControladorAuto;
+import ec.edu.ups.controlador.ControladorAutoROBADO;
 import ec.edu.ups.controlador.ControladorPersona;
 import ec.edu.ups.persona.ModificarPersona;
 import static ec.edu.ups.persona.ModificarPersona.x;
 import ec.edu.ups.persona.Persona;
 import ec.edu.ups.principal.Menu;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -21,21 +24,23 @@ import javax.swing.JOptionPane;
  *
  * @author erics
  */
-    public class ModificarAutoRobado extends javax.swing.JInternalFrame {
-    private Auto auto;
-    private ControladorAuto controladorauto;
-     private String placa;
+public class ModificarAutoRobado extends javax.swing.JInternalFrame {
+
+    private AutoRobado autoR;
+    private ControladorAutoROBADO controladorAutoR;
+    private String placa;
     public static String x;
+
     /**
      * Creates new form Modificar
      */
     public ModificarAutoRobado() {
         initComponents();
-       // ontroladorPersona = new ControladorPersona();
+        // ontroladorPersona = new ControladorPersona();
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();
-        
+
         setLocation(a / 2, b / 2);
         setVisible(true);
     }
@@ -245,7 +250,7 @@ import javax.swing.JOptionPane;
             txtcolor.setText(p.getColor());
             txtaño.setText(String.valueOf(p.getAño()));
             txtpersona.setText(p.getPerCedula());
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No existe el auto", "Buscar Auto", JOptionPane.OK_OPTION);
         }
 
@@ -261,11 +266,24 @@ import javax.swing.JOptionPane;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
-        x=null;
+        x = null;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+
+        autoR = new AutoRobado();
+
+        autoR.setPlaca(placa);
+        autoR.setModelo(txtmodelo.getText());
+        autoR.setColor(txtcolor.getText());
+        autoR.setAño(Integer.parseInt(txtaño.getText()));
+        autoR.setFechaRobo(Date.valueOf(txtfecha.getText()));
+        autoR.setPerCedula(txtpersona.getText());
+
+        controladorAutoR.updateAutoR(autoR);
+        JOptionPane.showMessageDialog(this, "Persona modificada", "Modificar Persona", JOptionPane.OK_OPTION);
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
