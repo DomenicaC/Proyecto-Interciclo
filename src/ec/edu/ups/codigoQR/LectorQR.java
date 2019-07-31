@@ -16,6 +16,7 @@ import com.google.zxing.Reader;
 import com.google.zxing.Result;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import ec.edu.ups.controlador.BaseDeDatos;
 import ec.edu.ups.controlador.ControladorAuto;
 import ec.edu.ups.controlador.ControladorPersona;
 import ec.edu.ups.persona.Persona;
@@ -30,6 +31,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
@@ -76,6 +84,26 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
         txtModelo.setVisible(false);
         txtPlaca1.setVisible(false);
         txtNombre.setVisible(false);
+
+    }
+    public void generarPDF() {
+        String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+        String user = "postgres";
+        String password = "sebas19";
+        
+        BaseDeDatos base = new BaseDeDatos(url, user, password);
+        base.conectar();
+        try {
+
+            File reporte = new File("src/ec/edu/ups/reportes/ReporteAutoRobado.jasper");
+            JasperReport reporteJasper = (JasperReport) JRLoader.loadObject(reporte);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporteJasper, null, base.getConexionBD());
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "ReporteRobado.pdf");
+            JasperViewer.viewReport(jasperPrint, false);
+            base.desconectar();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
@@ -588,7 +616,7 @@ PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
         txtModelo.setVisible(true);
         txtPlaca1.setVisible(true);
         txtNombre.setVisible(true);
-
+        generarPDF();
     }//GEN-LAST:event_btnBuscarAutoActionPerformed
 
 

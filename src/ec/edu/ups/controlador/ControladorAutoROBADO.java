@@ -24,8 +24,8 @@ public class ControladorAutoROBADO {
     SimpleDateFormat formato; 
     private BaseDeDatos MiBaseDatos;
 
-    public ControladorAutoROBADO() {
-        MiBaseDatos = new BaseDeDatos();
+    public ControladorAutoROBADO(String url ,String user, String password) {
+        MiBaseDatos = new BaseDeDatos(url,user,password);
          formato = new SimpleDateFormat("yyyy-MM-dd");
     }
 

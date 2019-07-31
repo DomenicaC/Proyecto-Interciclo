@@ -20,8 +20,8 @@ import java.util.Set;
 public class ControladorPersona {
     private BaseDeDatos MiBaseDatos;
 
-    public ControladorPersona() {
-        MiBaseDatos = new BaseDeDatos();
+    public ControladorPersona(String url ,String user, String password) {
+        MiBaseDatos = new BaseDeDatos(url,user,password);
     }
 
     public void create(Persona persona) {

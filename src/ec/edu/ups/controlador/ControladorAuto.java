@@ -20,9 +20,12 @@ import java.util.Set;
 public class ControladorAuto {
 
     private BaseDeDatos MiBaseDatos;
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+        String user = "postgres";
+        String password = "QLJPikrq7833";
 
-    public ControladorAuto() {
-        MiBaseDatos = new BaseDeDatos();
+    public ControladorAuto(String url ,String user, String password) {
+        MiBaseDatos = new BaseDeDatos(url,user,password);
     }
 
     public void create(Auto auto) {

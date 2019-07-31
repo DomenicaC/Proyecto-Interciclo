@@ -28,9 +28,9 @@ public class ModificarPersona extends javax.swing.JInternalFrame {
     /**
      * Creates new form Modificar
      */
-    public ModificarPersona() {
+    public ModificarPersona(String url ,String user, String password) {
         initComponents();
-        controladorPersona = new ControladorPersona();
+        controladorPersona = new ControladorPersona(url,user,password);
         x = "x";
         int a = Menu.desktopPane1.getWidth() - this.getWidth();
         int b = Menu.desktopPane1.getHeight() - this.getHeight();

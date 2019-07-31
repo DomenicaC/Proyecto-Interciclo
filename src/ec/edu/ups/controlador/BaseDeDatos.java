@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class BaseDeDatos {
     private Connection conexionBD;
 
-    public BaseDeDatos() {
+    public BaseDeDatos(String usl ,String user, String password) {
         
     }
 
