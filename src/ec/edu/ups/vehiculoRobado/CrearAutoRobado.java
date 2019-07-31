@@ -11,7 +11,7 @@ import ec.edu.ups.controlador.ControladorAuto;
 import ec.edu.ups.controlador.ControladorPersona;
 import static ec.edu.ups.persona.CrearPersona.x;
 import ec.edu.ups.principal.Menu;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
