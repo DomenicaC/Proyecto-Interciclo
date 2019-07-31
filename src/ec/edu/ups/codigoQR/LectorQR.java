@@ -30,13 +30,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import panamahitek.Arduino.PanamaHitek_Arduino;
 
 /**
  *
  * @author Domenica Cañizares
  */
 public class LectorQR extends javax.swing.JInternalFrame {
-
+PanamaHitek_Arduino arduino = new PanamaHitek_Arduino();
     /**
      * Creates new form LectorQR
      */
@@ -553,7 +554,18 @@ public class LectorQR extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
         }
+        if(p.getPlaca() != null && persona.getCedula() != null){
+             try {
 
+            arduino.sendData("5");
+
+        } catch (Exception ex) {
+
+            System.out.println("Error " + ex.toString());
+
+        }
+        }
+        
         lblApellido.setVisible(true);
         lblAño.setVisible(true);
         lblCedula.setVisible(true);
