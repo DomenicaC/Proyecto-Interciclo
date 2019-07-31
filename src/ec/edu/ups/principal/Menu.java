@@ -15,7 +15,7 @@ import ec.edu.ups.vehiculo.BuscarAuto;
 import ec.edu.ups.vehiculo.CrearAuto;
 import ec.edu.ups.vehiculo.ListarAuto;
 import ec.edu.ups.vehiculo.ModificarAuto;
-import ec.edu.ups.vehiculoRobado.BuscarAutoRobado;
+
 import ec.edu.ups.vehiculoRobado.CrearAutoRobado;
 import ec.edu.ups.vehiculoRobado.ListarAutoRobado;
 import ec.edu.ups.vista.parqueo.PuestoParqueo;
@@ -47,8 +47,9 @@ public class Menu extends javax.swing.JFrame {
     private ListarAuto listarauto;
 
     private CrearAutoRobado autorobado;
-    private BuscarAutoRobado autorobado1;
+   
     private ListarAutoRobado listarautorobado;
+    
 
     private PuestoParqueo puestoP;
 
@@ -90,7 +91,6 @@ public class Menu extends javax.swing.JFrame {
         deleteMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -226,15 +226,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Buscar");
-        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aboutMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(aboutMenuItem);
 
         jMenuItem1.setText("Modificar");
         helpMenu.add(jMenuItem1);
@@ -485,24 +476,6 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_itemLectorActionPerformed
 
-    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        // TODO add your handling code here:
-        String x = BuscarAutoRobado.x;
-        try {
-            if (x == null) {
-                if (autorobado1 == null || autorobado1.isVisible() == false) {
-                    autorobado1 = new BuscarAutoRobado();
-                    desktopPane1.add(autorobado1);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }//GEN-LAST:event_aboutMenuItemActionPerformed
-
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
         String x = CrearAutoRobado.x;
@@ -614,7 +587,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
